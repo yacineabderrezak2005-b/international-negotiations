@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QCMS | تقنيات المفاوضات التجارية الدولية — منصة تعليمية تفاعلية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f1e6; --surface:#fffdf7; --surface2:#f3ecdc;
+  --ink:#20242e; --muted:#5c6472;
+  --navy:#1c2f4e; --navy2:#152540; --navy3:#0f1c33;
+  --gold:#c9a24b; --gold2:#e2c579; --gold3:#8f6f23;
+  --ok:#3f8a5b; --bad:#b6482f; --okbg:#e4f0e7; --badbg:#f6e4de;
+  --line:rgba(28,47,78,.15); --shadow:0 10px 30px rgba(21,37,64,.10);
+  --r:18px;
+}
+[data-theme="dark"]{
+  --bg:#0d1524; --surface:#141f33; --surface2:#182741;
+  --ink:#e9e4d6; --muted:#a6afbf;
+  --navy:#141f33; --navy2:#0f1a2e; --navy3:#0a1322;
+  --gold:#d9b45e; --gold2:#eed695; --gold3:#b98f36;
+  --okbg:#16301f; --badbg:#371a12;
+  --line:rgba(255,255,255,.12); --shadow:0 12px 34px rgba(0,0,0,.4);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--ink);line-height:1.85;font-size:16.5px;overflow-x:hidden;transition:background .4s,color .4s}
+::selection{background:var(--gold);color:#fff}
+h1,h2,h3,.amiri{font-family:'Amiri',serif}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.ic{width:1.25em;height:1.25em;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.28em;flex:none}
+
+/* ===== Top progress + Nav ===== */
+#topbar{position:fixed;top:0;right:0;height:4px;width:0;background:linear-gradient(270deg,var(--gold),var(--gold2));z-index:1000;transition:width .1s linear;box-shadow:0 0 12px rgba(201,162,75,.7)}
+header{position:fixed;top:0;inset-inline:0;z-index:900;background:color-mix(in srgb,var(--navy2) 92%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid rgba(201,162,75,.25)}
+.nav-in{max-width:1180px;margin:0 auto;padding:10px 24px;display:flex;align-items:center;gap:26px;color:#efe9da}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800}
+.brand .logo{width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 32% 28%,var(--gold2),var(--gold) 55%,var(--gold3));display:grid;place-items:center;color:#1c2f4e;font-family:'Amiri';font-size:1.15rem;font-weight:700;border:2px solid #fff3;box-shadow:0 4px 14px rgba(201,162,75,.45)}
+.brand small{display:block;font-size:.68rem;color:var(--gold2);font-weight:600;letter-spacing:.5px}
+.nav-links{display:flex;gap:6px;margin-inline-start:auto}
+.nav-links a{padding:8px 14px;border-radius:12px;font-size:.92rem;font-weight:600;opacity:.85;transition:.25s}
+.nav-links a:hover{opacity:1;background:rgba(255,255,255,.08)}
+.nav-links a.on{background:rgba(201,162,75,.18);color:var(--gold2);opacity:1}
+.nav-acts{display:flex;gap:10px;align-items:center}
+.icon-btn{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:#efe9da;cursor:pointer;transition:.25s}
+.icon-btn:hover{background:var(--gold);color:#152540}
+#burger{display:none}
+@media(max-width:960px){
+  .nav-links{position:fixed;inset:64px 0 auto 0;background:var(--navy2);flex-direction:column;padding:14px 24px 22px;gap:4px;border-bottom:2px solid var(--gold);transform:translateY(-130%);transition:.35s;box-shadow:0 30px 60px rgba(0,0,0,.4)}
+  .nav-links.open{transform:none}
+  .nav-links a{padding:12px 14px}
+  #burger{display:grid}
+}
+
+/* ===== Hero ===== */
+.hero{min-height:96vh;display:grid;place-items:center;position:relative;background:radial-gradient(1200px 600px at 85% -10%,rgba(201,162,75,.16),transparent 60%),linear-gradient(160deg,var(--navy) 0%,var(--navy2) 55%,var(--navy3) 100%);color:#efe9da;padding:130px 0 80px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Cpath d='M32 6l7 19h19l-15 12 5 21-16-12-16 12 5-21L6 25h19z' fill='none' stroke='%23c9a24b' stroke-opacity='.08' transform='rotate(22 32 32)'/%3E%3C/svg%3E")}
+.hero-in{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center;max-width:1180px;padding:0 24px;width:100%}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,162,75,.14);border:1px solid rgba(201,162,75,.4);color:var(--gold2);padding:7px 16px;border-radius:99px;font-size:.85rem;font-weight:700;letter-spacing:.3px}
+.badge .pulse{width:8px;height:8px;border-radius:50%;background:var(--gold2);box-shadow:0 0 0 0 rgba(226,197,121,.7);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 9px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.hero h1{font-size:clamp(2.3rem,5.2vw,4rem);line-height:1.45;margin:22px 0 10px;font-weight:700}
+.hero h1 em{font-style:normal;color:var(--gold2);position:relative;white-space:nowrap}
+.hero h1 em::after{content:"";position:absolute;right:0;bottom:2px;height:8px;width:100%;background:rgba(201,162,75,.25);border-radius:6px;z-index:-1}
+.hero p.sub{font-size:1.08rem;color:#c6cbd6;max-width:56ch}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 28px;border-radius:14px;font-weight:800;font-family:'Cairo';font-size:.98rem;cursor:pointer;border:2px solid transparent;transition:.25s}
+.btn-gold{background:linear-gradient(140deg,var(--gold2),var(--gold));color:#1c2f4e;box-shadow:0 8px 24px rgba(201,162,75,.35)}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(201,162,75,.5)}
+.btn-ghost{border-color:rgba(239,233,218,.35);color:#efe9da}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold2);background:rgba(201,162,75,.08)}
+.btn-navy{background:var(--navy);color:#f3ecdc}.btn-navy:hover{background:var(--navy2);transform:translateY(-2px)}
+.hero-note{margin-top:30px;display:flex;gap:20px;flex-wrap:wrap;color:#9aa3b3;font-size:.85rem}
+.hero-note span{display:flex;align-items:center;gap:7px}
+/* emblem */
+.emblem-zone{position:relative;display:grid;place-items:center;min-height:420px}
+.emblem{position:relative;width:330px;height:330px;border-radius:50%;display:grid;place-items:center}
+.ring{position:absolute;border-radius:50%;inset:0;border:1.5px dashed rgba(201,162,75,.5);animation:spin 40s linear infinite}
+.ring.r2{inset:-26px;border-style:solid;border-color:rgba(201,162,75,.18);animation-duration:70s;animation-direction:reverse}
+.ring.r3{inset:-52px;border:1px solid rgba(255,255,255,.07)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.emblem .core{width:210px;height:210px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#2c4470,var(--navy2) 70%);border:2px solid rgba(201,162,75,.55);display:grid;place-items:center;box-shadow:0 0 60px rgba(201,162,75,.25),inset 0 0 40px rgba(0,0,0,.35);color:var(--gold2)}
+.emblem .core svg{width:96px;height:96px;stroke-width:1.4}
+.orbit-chip{position:absolute;padding:8px 18px;border-radius:99px;background:rgba(20,31,51,.85);border:1px solid rgba(201,162,75,.5);color:var(--gold2);font-weight:800;font-size:.95rem;backdrop-filter:blur(6px);animation:float 5s ease-in-out infinite;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.oc1{top:2%;right:8%}.oc2{bottom:6%;right:-4%;animation-delay:1.2s}.oc3{bottom:16%;left:-6%;animation-delay:2.2s}.oc4{top:22%;left:-8%;animation-delay:.6s}
+@keyframes float{50%{transform:translateY(-14px)}}
+.float-card{position:absolute;background:rgba(255,253,247,.97);color:#1c2f4e;border-radius:14px;padding:10px 16px;font-size:.82rem;font-weight:700;box-shadow:0 14px 34px rgba(0,0,0,.4);border:1px solid rgba(201,162,75,.4);animation:float 6s ease-in-out infinite}
+.float-card b{color:var(--gold3);font-size:1.05rem;display:block;font-family:'Amiri'}
+.fc-a{top:46%;left:2%;animation-delay:1.6s}.fc-b{bottom:-2%;right:12%;animation-delay:3s}
+.scroll-hint{position:absolute;bottom:26px;right:50%;transform:translateX(50%);color:#8b94a6;font-size:.78rem;display:flex;flex-direction:column;align-items:center;gap:6px}
+.scroll-hint::after{content:"";width:2px;height:34px;background:linear-gradient(var(--gold),transparent);animation:drop 1.8s infinite}
+@keyframes drop{0%{transform:scaleY(0);transform-origin:top}60%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+
+/* ===== Stats strip ===== */
+.strip{background:var(--surface);border-block:1px solid var(--line);position:relative;z-index:2}
+.strip .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;padding:22px 24px}
+.stat{text-align:center;padding:10px 6px;border-inline-start:1px solid var(--line)}
+.stat:first-child{border-inline-start:none}
+.stat b{display:block;font-family:'Amiri';font-size:2.1rem;color:var(--gold3);line-height:1.2}
+.stat span{font-size:.82rem;color:var(--muted);font-weight:600}
+
+/* ===== Sections ===== */
+section.block{padding:95px 0}
+.sec-head{max-width:760px;margin:0 auto 55px;text-align:center}
+.kicker{display:inline-flex;align-items:center;gap:9px;color:var(--gold3);font-weight:800;font-size:.85rem;letter-spacing:1px;background:rgba(201,162,75,.12);border:1px solid rgba(201,162,75,.35);padding:6px 18px;border-radius:99px}
+.kicker i{width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.sec-head h2{font-size:clamp(1.7rem,3.4vw,2.5rem);color:var(--navy);margin:16px 0 8px;font-weight:700}
+[data-theme="dark"] .sec-head h2{color:var(--gold2)}
+.sec-head h2::after{content:"◆";display:block;font-size:.6rem;color:var(--gold);margin-top:8px}
+.sec-head .lead{color:var(--muted);font-size:1.02rem}
+.sub-head{display:flex;align-items:center;gap:14px;margin:55px 0 24px}
+.sub-head .no{width:40px;height:40px;flex:none;border-radius:12px;background:var(--navy);color:var(--gold2);display:grid;place-items:center;font-family:'Amiri';font-size:1.1rem;font-weight:700;border:1.5px solid var(--gold)}
+.sub-head h3{font-size:1.4rem;color:var(--navy)}
+[data-theme="dark"] .sub-head h3{color:var(--gold2)}
+.sub-head::after{content:"";height:1px;flex:1;background:linear-gradient(270deg,var(--line),transparent)}
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(310px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px;box-shadow:var(--shadow);transition:.3s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-5px);border-color:rgba(201,162,75,.55)}
+.card::before{content:"";position:absolute;top:0;inset-inline:0;height:3px;background:linear-gradient(270deg,var(--gold),transparent);opacity:0;transition:.3s}
+.card:hover::before{opacity:1}
+.card h4{font-family:'Cairo';font-weight:800;font-size:1.05rem;margin-bottom:8px;color:var(--navy)}
+[data-theme="dark"] .card h4{color:var(--gold2)}
+.card p{color:var(--muted);font-size:.93rem}
+.card .en{display:inline-block;font-size:.72rem;color:var(--gold3);font-weight:700;letter-spacing:.5px;margin-bottom:6px;direction:ltr}
+.card .ic-top{width:46px;height:46px;border-radius:13px;background:rgba(201,162,75,.13);color:var(--gold3);display:grid;place-items:center;margin-bottom:14px;font-size:1.35rem}
+.pill-row{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
+.pill{padding:5px 14px;border-radius:99px;background:var(--surface2);border:1px solid var(--line);font-size:.8rem;font-weight:700;color:var(--navy)}
+[data-theme="dark"] .pill{color:var(--gold2)}
+.pill.gold{background:rgba(201,162,75,.15);border-color:rgba(201,162,75,.4);color:var(--gold3)}
+.def-box{background:var(--surface);border:1px solid var(--line);border-inline-start:5px solid var(--gold);border-radius:14px;padding:22px 26px;box-shadow:var(--shadow)}
+.def-box p{color:var(--muted)}
+.def-box b{color:var(--ink)}
+.src{display:block;margin-top:10px;font-size:.75rem;color:var(--gold3);font-weight:700}
+/* table */
+.tbl-wrap{overflow-x:auto;border-radius:16px;border:1px solid var(--line);box-shadow:var(--shadow);background:var(--surface)}
+table{width:100%;border-collapse:collapse;min-width:640px}
+th{background:var(--navy);color:#f3ecdc;padding:14px 16px;font-size:.9rem;text-align:right;white-space:nowrap}
+th:first-child{border-start-start-radius:0}
+td{padding:13px 16px;border-top:1px solid var(--line);font-size:.9rem;vertical-align:top}
+tbody tr:nth-child(odd){background:var(--surface2)}
+td b{color:var(--gold3)}
+/* principles */
+.principle{display:flex;gap:16px;align-items:flex-start}
+.principle .pnum{width:46px;height:46px;flex:none;border-radius:50%;background:radial-gradient(circle at 30% 25%,var(--gold2),var(--gold));color:#1c2f4e;display:grid;place-items:center;font-family:'Amiri';font-size:1.25rem;font-weight:700;box-shadow:0 6px 16px rgba(201,162,75,.35)}
+/* steps / process */
+.process{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;counter-reset:st}
+@media(max-width:900px){.process{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 16px;position:relative;box-shadow:var(--shadow);transition:.3s}
+.step:hover{transform:translateY(-5px);border-color:var(--gold)}
+.step .sno{width:36px;height:36px;border-radius:50%;background:var(--navy);color:var(--gold2);display:grid;place-items:center;font-weight:800;margin-bottom:12px;border:1.5px solid var(--gold)}
+.step .en{font-size:.68rem;color:var(--gold3);font-weight:800;direction:ltr;display:block}
+.step h5{font-size:.95rem;font-weight:800;margin:2px 0 6px;color:var(--navy)}
+[data-theme="dark"] .step h5{color:var(--gold2)}
+.step p{font-size:.8rem;color:var(--muted);line-height:1.7}
+/* timeline */
+.phase{position:relative;padding-inline-start:56px;margin-bottom:38px}
+.phase::before{content:"";position:absolute;inset-inline-start:19px;top:8px;bottom:-30px;width:2px;background:linear-gradient(var(--gold),var(--line))}
+.phase:last-child::before{bottom:14px}
+.phase .p-dot{position:absolute;inset-inline-start:0;top:0;width:40px;height:40px;border-radius:50%;background:var(--navy);border:2px solid var(--gold);color:var(--gold2);display:grid;place-items:center;font-family:'Amiri';font-weight:700}
+.phase h4{font-size:1.2rem;color:var(--navy);margin-bottom:6px}
+[data-theme="dark"] .phase h4{color:var(--gold2)}
+.phase h4 small{color:var(--gold3);font-size:.75rem;font-weight:700;margin-inline-start:8px}
+.phase .p-body{display:grid;gap:10px;margin-top:12px}
+.p-item{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 18px;font-size:.92rem;box-shadow:0 4px 14px rgba(21,37,64,.06)}
+.p-item b{color:var(--gold3)}
+.mini80{display:flex;align-items:center;gap:16px;background:linear-gradient(120deg,rgba(201,162,75,.14),transparent);border:1px dashed var(--gold);border-radius:16px;padding:18px 22px;margin-top:14px;flex-wrap:wrap}
+.mini80 .big{font-family:'Amiri';font-size:2.6rem;color:var(--gold3);line-height:1}
+/* STROB */
+.strob{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px}
+.s-tile{background:var(--navy);color:#efe9da;border-radius:16px;padding:20px;text-align:center;position:relative;overflow:hidden;border:1px solid rgba(201,162,75,.35);transition:.3s}
+.s-tile:hover{transform:translateY(-5px);box-shadow:0 14px 30px rgba(21,37,64,.3)}
+.s-tile .letter{font-family:'Amiri';font-size:2.6rem;color:var(--gold2);line-height:1.1}
+.s-tile b{display:block;margin:4px 0 2px;color:#fff}
+.s-tile span{font-size:.72rem;opacity:.75;direction:ltr;display:block}
+.s-tile p{font-size:.76rem;color:#c6cbd6;margin-top:8px;line-height:1.65}
+/* equation */
+.equation-zone{background:linear-gradient(150deg,var(--navy),var(--navy2));border-radius:24px;padding:44px 34px;color:#efe9da;position:relative;overflow:hidden;border:1px solid rgba(201,162,75,.35)}
+.equation-zone::before{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Cpath d='M32 6l7 19h19l-15 12 5 21-16-12-16 12 5-21L6 25h19z' fill='none' stroke='%23c9a24b' stroke-opacity='.07' transform='rotate(22 32 32)'/%3E%3C/svg%3E")}
+.eq-display{position:relative;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;font-family:'Amiri';font-size:clamp(1.1rem,2.6vw,1.7rem);font-weight:700;text-align:center;margin-bottom:34px}
+.eq-display .box{background:rgba(201,162,75,.14);border:1.5px solid rgba(201,162,75,.5);border-radius:12px;padding:10px 20px;color:var(--gold2)}
+.eq-display .op{color:var(--gold);font-size:1.6em}
+.eq-res{background:var(--gold);color:#1c2f4e;padding:10px 24px;border-radius:12px}
+.sliders{position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:26px;max-width:900px;margin:0 auto}
+.sld label{display:flex;justify-content:space-between;font-weight:700;font-size:.9rem;margin-bottom:10px;color:#e8e2d2}
+.sld output{color:var(--gold2);font-family:'Amiri'}
+input[type=range]{width:100%;appearance:none;height:6px;border-radius:99px;background:rgba(255,255,255,.18);outline:none}
+input[type=range]::-webkit-slider-thumb{appearance:none;width:22px;height:22px;border-radius:50%;background:linear-gradient(140deg,var(--gold2),var(--gold));border:2.5px solid #1c2f4e;cursor:pointer;box-shadow:0 0 12px rgba(201,162,75,.6)}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--gold);border:2.5px solid #1c2f4e;cursor:pointer}
+.eq-meter{max-width:900px;margin:30px auto 0;background:rgba(255,255,255,.1);border-radius:99px;height:22px;overflow:hidden;border:1px solid rgba(201,162,75,.4)}
+.eq-meter i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(270deg,var(--gold2),var(--gold));transition:width .4s ease;box-shadow:0 0 18px rgba(201,162,75,.7)}
+.eq-verdict{text-align:center;margin-top:14px;color:var(--gold2);font-weight:800}
+.eq-hint{text-align:center;margin-top:8px;font-size:.8rem;color:#9aa3b3}
+
+/* ===== Quiz / QCMS ===== */
+.dark-sec{background:radial-gradient(1000px 500px at 10% 0%,rgba(201,162,75,.12),transparent 55%),linear-gradient(160deg,var(--navy2),var(--navy3));color:#efe9da;border-block:1px solid rgba(201,162,75,.25)}
+.dark-sec .sec-head h2{color:#fff}
+.dark-sec .sec-head h2::after{color:var(--gold2)}
+.dark-sec .sec-head .lead{color:#aab2c2}
+.dark-sec .sub-head h3{color:var(--gold2)}
+.dark-sec .sub-head::after{background:linear-gradient(270deg,rgba(201,162,75,.4),transparent)}
+.dark-sec .sub-head .no{background:rgba(201,162,75,.15);border-color:var(--gold)}
+.qcms-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:40px}
+.q-tile{background:rgba(255,255,255,.05);border:1px solid rgba(201,162,75,.3);border-radius:18px;padding:22px;text-align:center;transition:.3s}
+.q-tile:hover{background:rgba(201,162,75,.1);transform:translateY(-4px)}
+.q-tile .qic{width:48px;height:48px;margin:0 auto 10px;border-radius:14px;background:rgba(201,162,75,.16);color:var(--gold2);display:grid;place-items:center;font-size:1.4rem}
+.q-tile b{display:block;font-family:'Amiri';font-size:1.9rem;color:var(--gold2);line-height:1.3}
+.q-tile span{font-size:.78rem;color:#aab2c2;font-weight:600}
+.quiz-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:18px}
+.quiz-card{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:24px;transition:.3s;position:relative;overflow:hidden}
+.quiz-card:hover{transform:translateY(-5px);border-color:var(--gold);background:rgba(201,162,75,.07)}
+.quiz-card .qc-top{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.quiz-card .qc-ic{width:52px;height:52px;flex:none;border-radius:15px;background:linear-gradient(140deg,var(--gold2),var(--gold));color:#1c2f4e;display:grid;place-items:center;font-family:'Amiri';font-size:1.35rem;font-weight:700}
+.quiz-card h4{font-size:1.05rem;font-weight:800;color:#fff}
+.quiz-card .qc-meta{font-size:.78rem;color:#aab2c2;display:flex;gap:14px;flex-wrap:wrap;margin-top:2px}
+.quiz-card p{font-size:.86rem;color:#c0c7d4;min-height:44px}
+.qc-foot{display:flex;align-items:center;justify-content:space-between;margin-top:16px;gap:10px;flex-wrap:wrap}
+.best-tag{font-size:.78rem;font-weight:800;color:var(--gold2);background:rgba(201,162,75,.15);border:1px solid rgba(201,162,75,.4);padding:5px 12px;border-radius:99px}
+.best-tag.zero{color:#9aa3b3;background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15)}
+.btn-start{background:linear-gradient(140deg,var(--gold2),var(--gold));color:#1c2f4e;border:none;border-radius:12px;padding:10px 22px;font-weight:800;font-family:'Cairo';cursor:pointer;transition:.25s}
+.btn-start:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(201,162,75,.4)}
+/* builder */
+.builder{background:rgba(255,255,255,.045);border:1px dashed rgba(201,162,75,.45);border-radius:20px;padding:28px}
+.builder h4{color:var(--gold2);margin-bottom:6px;font-family:'Cairo';font-weight:800}
+.builder .hint{font-size:.8rem;color:#9aa3b3;margin-bottom:18px}
+.b-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-bottom:12px}
+.builder input[type=text],.builder select{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:11px 14px;color:#efe9da;font-family:'Cairo';font-size:.9rem;outline:none;transition:.2s}
+.builder input:focus,.builder select:focus{border-color:var(--gold)}
+.builder select option{background:#152540;color:#efe9da}
+.b-correct{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:4px 0 16px;font-size:.85rem;color:#c0c7d4}
+.b-correct label{display:flex;gap:6px;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);padding:6px 14px;border-radius:99px;cursor:pointer}
+.b-correct input{accent-color:var(--gold)}
+.btn-outline-gold{background:transparent;border:1.5px solid var(--gold);color:var(--gold2);border-radius:12px;padding:10px 24px;font-weight:800;font-family:'Cairo';cursor:pointer;transition:.25s}
+.btn-outline-gold:hover{background:var(--gold);color:#1c2f4e}
+.custom-list{margin-top:18px;display:grid;gap:8px}
+.custom-item{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:10px 14px;font-size:.85rem}
+.custom-item .del{margin-inline-start:auto;background:none;border:none;color:#e07856;cursor:pointer;font-size:1rem;padding:4px}
+.custom-item b{color:var(--gold2);font-size:.72rem;background:rgba(201,162,75,.14);padding:2px 10px;border-radius:99px;flex:none}
+
+/* ===== Modal ===== */
+#overlay{position:fixed;inset:0;background:rgba(10,17,30,.72);backdrop-filter:blur(8px);z-index:1200;display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:5vh 16px}
+#overlay.show{display:flex}
+.modal{background:var(--surface);border-radius:24px;max-width:820px;width:100%;border:1px solid rgba(201,162,75,.4);box-shadow:0 40px 90px rgba(0,0,0,.5);overflow:hidden;animation:mup .4s ease}
+@keyframes mup{from{opacity:0;transform:translateY(30px)}}
+.m-head{background:linear-gradient(140deg,var(--navy),var(--navy2));color:#efe9da;padding:20px 26px;display:flex;align-items:center;gap:16px}
+.m-head .mt{flex:1}
+.m-head .mt b{display:block;font-size:1rem}
+.m-head .mt span{font-size:.76rem;color:var(--gold2)}
+.m-close{width:38px;height:38px;border-radius:11px;background:rgba(255,255,255,.1);border:none;color:#efe9da;cursor:pointer;display:grid;place-items:center;transition:.2s}
+.m-close:hover{background:var(--bad)}
+.m-timer{display:flex;align-items:center;gap:7px;background:rgba(201,162,75,.16);border:1px solid rgba(201,162,75,.4);color:var(--gold2);padding:6px 14px;border-radius:99px;font-weight:800;font-size:.9rem;font-variant-numeric:tabular-nums}
+.m-timer.danger{background:rgba(182,72,47,.2);border-color:rgba(224,120,86,.6);color:#ffb09a;animation:pulse 1s infinite}
+.m-bar{height:6px;background:var(--surface2)}
+.m-bar i{display:block;height:100%;background:linear-gradient(270deg,var(--gold2),var(--gold));width:0;transition:.35s}
+.m-body{padding:28px 30px;min-height:280px}
+.m-foot{padding:16px 26px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.m-count{font-size:.82rem;color:var(--muted);font-weight:700}
+.qq{font-family:'Amiri';font-size:1.35rem;font-weight:700;color:var(--navy);margin-bottom:22px;line-height:1.7}
+[data-theme="dark"] .qq{color:var(--gold2)}
+.opts{display:grid;gap:11px}
+.opt{width:100%;text-align:right;background:var(--surface2);border:1.5px solid var(--line);border-radius:14px;padding:13px 18px;font-family:'Cairo';font-size:.95rem;font-weight:600;color:var(--ink);cursor:pointer;display:flex;align-items:center;gap:12px;transition:.2s}
+.opt:hover:not(:disabled){border-color:var(--gold);transform:translateX(-4px)}
+.opt .okey{width:30px;height:30px;flex:none;border-radius:9px;background:var(--navy);color:var(--gold2);display:grid;place-items:center;font-weight:800;font-size:.82rem}
+.opt.ok{background:var(--okbg);border-color:var(--ok);color:var(--ok)}
+.opt.ok .okey{background:var(--ok);color:#fff}
+.opt.bad{background:var(--badbg);border-color:var(--bad);color:var(--bad)}
+.opt.bad .okey{background:var(--bad);color:#fff}
+.opt:disabled{cursor:default;opacity:.92}
+.explain{margin-top:18px;background:rgba(201,162,75,.1);border-inline-start:4px solid var(--gold);border-radius:12px;padding:14px 18px;font-size:.87rem;color:var(--muted);animation:mup .35s ease}
+.explain b{color:var(--gold3)}
+/* results */
+.res{text-align:center;padding:10px 0}
+.ring-wrap{position:relative;width:170px;height:170px;margin:0 auto 16px}
+.ring-wrap svg{transform:rotate(-90deg)}
+.ring-bg{fill:none;stroke:var(--surface2);stroke-width:12}
+.ring-fg{fill:none;stroke:url(#goldgrad);stroke-width:12;stroke-linecap:round;transition:stroke-dashoffset 1.2s ease}
+.ring-val{position:absolute;inset:0;display:grid;place-items:center;font-family:'Amiri';font-size:2.4rem;font-weight:700;color:var(--navy)}
+[data-theme="dark"] .ring-val{color:var(--gold2)}
+.res h3{font-size:1.5rem;color:var(--navy);margin-bottom:6px}
+[data-theme="dark"] .res h3{color:var(--gold2)}
+.res .rmsg{color:var(--muted);margin-bottom:8px}
+.res .rstats{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:16px 0}
+.chip-stat{background:var(--surface2);border:1px solid var(--line);border-radius:99px;padding:6px 18px;font-size:.83rem;font-weight:700}
+.chip-stat b{color:var(--gold3)}
+.review{text-align:right;margin-top:22px;display:grid;gap:10px;max-height:320px;overflow-y:auto;padding-inline-end:6px}
+.rev-item{border:1px solid var(--line);border-radius:14px;padding:14px 18px;font-size:.87rem;background:var(--surface2)}
+.rev-item .rq{font-weight:800;margin-bottom:6px;color:var(--ink)}
+.rev-item .ra{font-size:.8rem;margin-top:3px}
+.rev-item .ra.ok{color:var(--ok)}.rev-item .ra.bad{color:var(--bad)}
+.rev-item .re{font-size:.78rem;color:var(--muted);margin-top:6px;border-top:1px dashed var(--line);padding-top:6px}
+.rev-item.was-bad{border-inline-start:4px solid var(--bad)}
+.rev-item.was-ok{border-inline-start:4px solid var(--ok)}
+
+/* ===== Flashcards ===== */
+.fc-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:26px}
+.fc-chip{padding:8px 20px;border-radius:99px;border:1.5px solid var(--line);background:var(--surface);color:var(--muted);font-weight:700;font-size:.85rem;font-family:'Cairo';cursor:pointer;transition:.25s}
+.fc-chip:hover{border-color:var(--gold)}
+.fc-chip.on{background:var(--navy);color:var(--gold2);border-color:var(--gold)}
+.fc-stage{perspective:1400px;max-width:640px;margin:0 auto}
+.fc-card{position:relative;height:360px;transform-style:preserve-3d;transition:transform .65s cubic-bezier(.4,.1,.2,1);cursor:pointer}
+.fc-card.flipped{transform:rotateY(180deg)}
+.fc-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:22px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:36px;box-shadow:var(--shadow)}
+.fc-front{background:radial-gradient(circle at 80% 0%,rgba(201,162,75,.18),transparent 55%),var(--surface);border:1.5px solid var(--line)}
+.fc-front .cat{position:absolute;top:18px;inset-inline-start:22px;font-size:.72rem;font-weight:800;color:var(--gold3);background:rgba(201,162,75,.13);padding:4px 14px;border-radius:99px;border:1px solid rgba(201,162,75,.35)}
+.fc-front .fc-q{font-family:'Amiri';font-size:1.7rem;font-weight:700;color:var(--navy);line-height:1.6}
+[data-theme="dark"] .fc-front .fc-q{color:var(--gold2)}
+.fc-front .tap{position:absolute;bottom:20px;font-size:.75rem;color:var(--muted);display:flex;gap:7px;align-items:center}
+.fc-back{background:linear-gradient(150deg,var(--navy),var(--navy2));color:#e8e2d2;transform:rotateY(180deg);border:1.5px solid rgba(201,162,75,.5)}
+.fc-back .fc-a{font-size:1rem;line-height:1.9}
+.fc-back .bk{color:var(--gold2);font-size:.72rem;font-weight:800;letter-spacing:1px;margin-bottom:12px}
+.fc-nav{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:28px;flex-wrap:wrap}
+.fc-btn{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--line);background:var(--surface);color:var(--navy);cursor:pointer;display:grid;place-items:center;font-size:1.2rem;transition:.25s}
+[data-theme="dark"] .fc-btn{color:var(--gold2)}
+.fc-btn:hover{border-color:var(--gold);background:var(--surface2);transform:translateY(-3px)}
+.fc-btn.flip{width:auto;border-radius:99px;padding:0 28px;font-family:'Cairo';font-weight:800;font-size:.92rem;background:var(--navy);color:var(--gold2);border-color:var(--gold)}
+.fc-btn.judge{width:auto;border-radius:14px;padding:12px 24px;font-family:'Cairo';font-weight:800;font-size:.88rem}
+.judge.yes{background:var(--okbg);border-color:var(--ok);color:var(--ok)}
+.judge.no{background:var(--badbg);border-color:var(--bad);color:var(--bad)}
+.fc-prog{max-width:640px;margin:20px auto 0;text-align:center}
+.fc-prog .bar{height:8px;background:var(--surface2);border-radius:99px;overflow:hidden;border:1px solid var(--line)}
+.fc-prog .bar i{display:block;height:100%;background:linear-gradient(270deg,var(--gold2),var(--gold));width:0;transition:.4s}
+.fc-prog .txt{font-size:.8rem;color:var(--muted);font-weight:700;margin-top:8px}
+
+/* ===== References ===== */
+.ref-item{display:flex;gap:18px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 24px;transition:.3s}
+.ref-item:hover{border-color:var(--gold);transform:translateX(-5px)}
+.ref-item .rno{width:38px;height:38px;flex:none;border-radius:11px;background:var(--navy);color:var(--gold2);display:grid;place-items:center;font-family:'Amiri';font-weight:700}
+.ref-item p{font-size:.9rem;color:var(--muted)}
+.ref-item p b{color:var(--ink)}
+
+/* ===== Footer ===== */
+footer{background:var(--navy3);color:#9aa3b3;padding:60px 0 0;border-top:2px solid var(--gold);position:relative}
+footer::before{content:"";position:absolute;top:0;inset-inline:0;height:120px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Cpath d='M32 6l7 19h19l-15 12 5 21-16-12-16 12 5-21L6 25h19z' fill='none' stroke='%23c9a24b' stroke-opacity='.06' transform='rotate(22 32 32)'/%3E%3C/svg%3E");pointer-events:none}
+.f-grid{position:relative;display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px;padding-bottom:40px}
+@media(max-width:800px){.f-grid{grid-template-columns:1fr}}
+.f-grid h5{color:var(--gold2);font-family:'Cairo';font-weight:800;margin-bottom:16px;font-size:1rem}
+.f-grid p{font-size:.86rem}
+.f-grid a{display:block;padding:5px 0;font-size:.88rem;transition:.2s}
+.f-grid a:hover{color:var(--gold2);padding-inline-start:6px}
+.f-brand{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.f-bot{border-top:1px solid rgba(255,255,255,.1);padding:20px 0;text-align:center;font-size:.8rem;position:relative}
+
+/* ===== Reveal & misc ===== */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
+.rv.in{opacity:1;transform:none}
+#toast{position:fixed;bottom:26px;right:50%;transform:translate(50%,120px);background:var(--navy);color:#efe9da;border:1px solid var(--gold);padding:13px 26px;border-radius:14px;font-weight:700;font-size:.88rem;z-index:2000;transition:.45s;box-shadow:0 14px 40px rgba(0,0,0,.4);display:flex;gap:10px;align-items:center;max-width:92vw}
+#toast.show{transform:translate(50%,0)}
+#toast .ic{color:var(--gold2)}
+@media(max-width:900px){
+  .hero-in{grid-template-columns:1fr;text-align:center}
+  .hero-cta{justify-content:center}
+  .hero-note{justify-content:center}
+  .emblem-zone{min-height:380px;order:-1;margin-top:10px}
+  .hero h1 em::after{display:none}
+  .stat b{font-size:1.7rem}
+  .qq{font-size:1.15rem}
+  .fc-card{height:400px}
+  .m-body{padding:22px 18px}
+}
+</style>
+</head>
+<body>
+
+<!-- SVG sprite -->
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19V5a2 2 0 0 1 2-2h13v18H6a2 2 0 0 1-2-2zm0 0a2 2 0 0 1 2-2h13"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".8"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 4v16M8 20h8M5 7h14M7 7l-3 6a3 3 0 0 0 6 0L7 7zM17 7l-3 6a3 3 0 0 0 6 0l-3-6z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20h16M6 20v-7M11 20V5M16 20v-10"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l2.2 6.2L20 12l-5.8 2.8L12 21l-2.2-6.2L4 12l5.8-2.8z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><ellipse cx="12" cy="12" rx="3.4" ry="8"/><path d="M4.5 12h15"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 1 3.5 10.9c-.6.5-1 1.2-1 2.1h-5c0-.9-.4-1.6-1-2.1A6 6 0 0 1 12 3z"/></symbol>
+  <symbol id="i-cards" viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="13" rx="2"/><path d="M8 3h11a2 2 0 0 1 2 2v11"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14A8 8 0 1 1 10 4a6.5 6.5 0 0 0 10 10z"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></symbol>
+  <symbol id="i-chr" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+  <symbol id="i-chl" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+  <symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M3 7h4c6 0 8 10 14 10M3 17h4c2 0 3.6-1.2 5-3M17 5l3 2-3 2M17 15l3 2-3 2"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7M21 3v6h-6"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V5h6v2M6 7l1 13h10l1-13M10 11v5M14 11v5"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6z"/><circle cx="12" cy="12" r="2.5"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.5-9-9c-1.5-3.5 1-7 4.5-7 2 0 3.5 1 4.5 3 1-2 2.5-3 4.5-3 3.5 0 6 3.5 4.5 7-2 4.5-9 9-9 9z"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><circle cx="8.5" cy="12" r="4"/><circle cx="15.5" cy="12" r="4"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19C5 10 12 5 20 5c0 8-5 14-13 14M5 19c2-5 5-8 9-10"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><circle cx="17" cy="9" r="2.5"/><path d="M16 15c3 .2 5 2 5 5"/></symbol>
+  <symbol id="i-coins" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 7v10M14.8 9.2c0-1.2-1.2-2.2-2.8-2.2s-2.8 1-2.8 2.2c0 3.2 5.6 1.5 5.6 4.7 0 1.2-1.2 2.1-2.8 2.1s-2.8-1-2.8-2.1"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6zM14 3v4h4M9 12h6M9 16h6"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4M5 5h12l-2.5 4L17 13H5"/></symbol>
+</svg>
+
+<div id="topbar"></div>
+
+<header>
+  <div class="nav-in">
+    <a href="#home" class="brand">
+      <span class="logo">ت</span>
+      <span>QCMS<small>منصة المفاوضات التعليمية</small></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#ax1">المدخل</a>
+      <a href="#ax2">النظريات</a>
+      <a href="#ax3">المراحل</a>
+      <a href="#ax4">المحددات</a>
+      <a href="#refs">المراجع</a>
+      <a href="#quiz">الاختبارات</a>
+      <a href="#cards">البطاقات</a>
+    </nav>
+    <div class="nav-acts">
+      <button class="icon-btn" id="themeBtn" aria-label="تبديل السمة"><svg class="ic"><use href="#i-moon"/></svg></button>
+      <button class="icon-btn" id="burger" aria-label="القائمة"><svg class="ic"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="hero-in">
+    <div>
+      <span class="badge"><span class="pulse"></span> منصة تعليمية تفاعلية · QCMS</span>
+      <h1>تقنيات <em>المفاوضات التجارية الدولية</em></h1>
+      <p class="sub">ملخص دراسي جامعي شامل ومبنيّ تفاعلياً — من الإطار المفاهيمي والنظريات الكلاسيكية والحداثة، إلى المراحل العملية والمحددات التفاوضية. منهجٌ متوافق مع المقررات البيداغوجية للجامعات الجزائرية.</p>
+      <div class="hero-cta">
+        <a href="#quiz" class="btn btn-gold"><svg class="ic"><use href="#i-target"/></svg> ابدأ الاختبار الشامل</a>
+        <a href="#cards" class="btn btn-ghost"><svg class="ic"><use href="#i-cards"/></svg> البطاقات التعليمية</a>
+      </div>
+      <div class="hero-note">
+        <span><svg class="ic"><use href="#i-check"/></svg> بنك أسئلة مصحح بإجابات نموذجية</span>
+        <span><svg class="ic"><use href="#i-chart"/></svg> لوحة قياس ومتابعة التقدم</span>
+        <span><svg class="ic"><use href="#i-book"/></svg> مرفقة بالمراجع الأكاديمية</span>
+      </div>
+    </div>
+    <div class="emblem-zone">
+      <div class="emblem">
+        <div class="ring"></div><div class="ring r2"></div><div class="ring r3"></div>
+        <div class="core"><svg class="ic"><use href="#i-scale"/></svg></div>
+        <span class="orbit-chip oc1">فنّ</span>
+        <span class="orbit-chip oc2">عِلم</span>
+        <span class="orbit-chip oc3">أدب</span>
+        <span class="orbit-chip oc4">BATNA</span>
+        <div class="float-card fc-a"><b>80%</b> من النجاح في الإعداد</div>
+        <div class="float-card fc-b"><b>Win-Win</b> فلسفة مشروع هارفارد</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">مرّر للأسفل</div>
+</section>
+
+<!-- ================= STATS ================= -->
+<div class="strip">
+  <div class="wrap">
+    <div class="stat"><b>4</b><span>محاور دراسية</span></div>
+    <div class="stat"><b id="stQ">—</b><span>سؤال تدريبي</span></div>
+    <div class="stat"><b id="stC">—</b><span>بطاقة تعليمية</span></div>
+    <div class="stat"><b>6</b><span>محددات تفاوضية</span></div>
+    <div class="stat"><b>5</b><span>مراحل (Hay & McCarthy)</span></div>
+    <div class="stat"><b>6</b><span>مراجع أكاديمية</span></div>
+  </div>
+</div>
+
+<!-- ================= المحور 1 ================= -->
+<section class="block" id="ax1">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="kicker"><i></i> المحور الأول</span>
+      <h2>ماهية المفاوضات التجارية الدولية</h2>
+      <p class="lead">خصائصها، مبادئها، وتمييزها عن المفاهيم المشابهة — الأساس النظري الذي تُبنى عليه بقية المنهج.</p>
+    </div>
+
+    <div class="sub-head rv"><span class="no">١</span><h3>مفهوم التفاوض: ثلاثة أبعاد مكتملة</h3></div>
+    <div class="def-box rv" style="margin-bottom:20px">
+      <p><b>المفهوم اللغوي والعام:</b> تشتمل كلمة «المفاوضات» في العربية جواني <b>«الأخذ والعطاء»</b> من فُضّ وقُبّواق، وتبقى اصطلاحاً عمليةً حوارَ مناقشة وتفاعل ديناميكي بين طرفين أو أكثر، مع وجود <b>غرض نزاعي</b> (اختلاف في وجهات النظر) أو أكثر، بهدف تقريب المواقف والوصول إلى اتفاق مقبول يحقّق المصلحة المشتركة أو يقلّل الخسائر.
+      <span class="src">— جامعة تيارت، ص 7 · جامعة الجزائر 3، ص 1–2</span></p>
+    </div>
+    <div class="grid g3">
+      <div class="card rv"><div class="ic-top"><svg class="ic"><use href="#i-spark"/></svg></div><h4>فنّ</h4><p>في توظيف التكتيكات والمهارات السلوكية، وتفاعل ديناميكي بين طرفين يقدمان تنازلات مضادة تُحفظ لملف العلاقات المستقبلية.</p></div>
+      <div class="card rv"><div class="ic-top"><svg class="ic"><use href="#i-book"/></svg></div><h4>عِلم</h4><p>يقوم على نظريات وقوانين ومبادئ منهجية قابلة للدراسة والتخطيط والتقييم، لا مجرد براعة موقفية.</p></div>
+      <div class="card rv"><div class="ic-top"><svg class="ic"><use href="#i-doc"/></svg></div><h4>أدب</h4><p>في انتقاء الكلمة والرمز وأسلوب الخطاب المناسبة قائلةً للدراسة والتخطيط، وإدارة الوعي بلغة سليمة.</p></div>
+    </div>
+
+    <div class="sub-head rv"><span class="no">٢</span><h3>التعريف والأشكال والموضوعات الجوهرية</h3></div>
+    <div class="def-box rv" style="margin-bottom:20px">
+      <p><b>المفاوضات التجارية الدولية (International Commercial Negotiation):</b> عملية اتصالية ذات مضمون اقتصادي وتجاري وقانوني، تجري بين طرفين أو أكثر يمثّلون دولاً أو أنظمة قانونية واقتصادية مختلفة (شركات متعددة الجنسيات، مؤسسات تصدير واستيراد، دول، هيئات مالية دولية)، يتم من خلالها تبادل المقترحات والمساومات لتسوية قضية تجارية أو إبرام عقود تجارية دولية تحقق توازن المصلحة المشتركة.
+      <span class="src">— جامعة غليزان ص 13 · جامعة سكيكدة ص 2–4</span></p>
+    </div>
+    <div class="grid g4" style="margin-bottom:22px">
+      <div class="card rv"><span class="en">Subject 01</span><h4>نوع السلعة ومواصفاتها</h4><p>تحديد خصائص المنتج: جودته، تغليفه، مطابقته لمعايير عالمية دون عيوب خفية.</p></div>
+      <div class="card rv"><span class="en">Subject 02</span><h4>متغيرات العرض والطلب والسعر</h4><p>دراسة اتجاهات السوق وتحديد السعر التوافقي بين الحد الأقصى للمشتري والأدنى للبائع.</p></div>
+      <div class="card rv"><span class="en">Subject 03</span><h4>الكمية المطلوبة ونوعيتها</h4><p>ضبط حجم الطلبيات وجدولة دفعات التوريد ومستويات الجودة المقبولة.</p></div>
+      <div class="card rv"><span class="en">Subject 04</span><h4>شروط الدفع والاعتماد المستندي</h4><p>تحديد آلية الدفع، آجال التسديد، التسهيلات الائتمانية والخصومات الكمية.</p></div>
+      <div class="card rv"><span class="en">Subject 05</span><h4>مدة وآجال التسليم</h4><p>ضبط الجدول الزمني للتسليم وتحديد الغرامات والتعويضات في حال التأخير.</p></div>
+      <div class="card rv"><span class="en">Subject 06</span><h4>النقل ومخاطر الدولي (Incoterms)</h4><p>تحديد مسؤولية كل من البائع والمشتري في تحمل نفقات الشحن والتأمين ومخاطر الفلت أو الهلاك.</p></div>
+      <div class="card rv"><span class="en">Subject 07</span><h4>المرجعية القانونية لفض المنازعات</h4><p>الاتفاق المسبق على القانون الواجب التطبيق ووجه التقاضي أو التحكيم عند نشوب نزاع.</p></div>
+    </div>
+    <div class="def-box rv">
+      <p><b>أشكال التفاوض التجاري:</b> يُمارس مع الزبائن والعملاء، الموردين الدوليين، المنظمات المنافسة، الهيئات المالية والبنوك ومؤسسات التأمين، وكالات النشر والإشهار الدولي، الأجهزة الحكومية والجمارك (الضرائب)، وفي الحقوق وعقود نقل التكنولوجيا والامتياز. وصنّف نموذج <b>دارمون (Darmon)</b> أطرافه إلى أربعة أنماط:
+      <span class="src">— جامعة غليزان، ص 18–20</span></p>
+      <div class="pill-row">
+        <span class="pill gold">B2B — بين المؤسسات</span>
+        <span class="pill gold">B2C — مؤسسة ومستهلك</span>
+        <span class="pill gold">C2B — فرد ومؤسسة</span>
+        <span class="pill gold">C2C — بين الأفراد</span>
+      </div>
+    </div>
+
+    <div class="sub-head rv"><span class="no">٣</span><h3>الخصائص والمبادئ الخمسة</h3></div>
+    <div class="grid g3" style="margin-bottom:26px">
+      <div class="card rv"><div class="ic-top"><svg class="ic"><use href="#i-refresh"/></svg></div><h4>عملية ديناميكية واحتمالية معقدة</h4><p>يتفاعل فيها متغيرات اقتصادية وقانونية وثقافية واجتماعية ولغوية متغيرة باستمرار؛ ولا توجد استراتيجية واحدة تصلح لجميع المواقف.</p></div>
+      <div class="card rv"><div class="ic-top"><svg class="ic"><use href="#i-users"/></svg></div><h4>عملية نفسية واتصالية</h4><p>تتأثر بإدراكات واتجاهات وشخصيات المفاوضين، وتعتمد جوهرياً على مهارات الاتصال اللفظي وغير اللفظي، وحسن الإنصات، والدور الحاسم للمعلومات.</p></div>
+      <div class="card rv"><div class="ic-top"><svg class="ic"><use href="#i-link"/></svg></div><h4>التأثر بالعلاقات السابقة واللاحقة</h4><p>تمتد آثار التفاوض إلى ما بعد توقيع العقد لبناء الثقة واستمرارية الشراكة، وقد تكون العلاقة أحادية أو متعددة الجولات.</p></div>
+    </div>
+    <div class="def-box rv" style="margin-bottom:26px">
+      <p><b>الخصائص التسع للتفاوض التجاري الفعال:</b></p>
+      <div class="pill-row">
+        <span class="pill">الالتزام</span><span class="pill">وجود المستفيد</span><span class="pill">التشريع</span><span class="pill">توازن المصلحة</span><span class="pill">التكافؤ</span><span class="pill">العدالة</span><span class="pill">الكفاءة</span><span class="pill">الاتساق</span><span class="pill">التوازن والمرونة</span>
+      </div>
+    </div>
+    <div class="grid g2">
+      <div class="card rv principle"><span class="pnum">١</span><div><h4>مبدأ القدرة الذاتية</h4><p>امتلاك الكفاءة التحليلية والاتصالية لفهم أبعاد القضية، واستيعاب المتغيرات الداخلية والخارجية، وقراءة أنماط تفكير الطرف الآخر.</p></div></div>
+      <div class="card rv principle"><span class="pnum">٢</span><div><h4>مبدأ المنفعة</h4><p>تحقيق فائدة لكل طرف من وراء استمرار التفاوض، ولو تلخّصت في تجنّب خسائر أكبر قد تنتج عند غيابه.</p></div></div>
+      <div class="card rv principle"><span class="pnum">٣</span><div><h4>مبدأ الالتزام</h4><p>التزام المفاوض بتحقيق أهداف مؤسسته، والتزام الطرفين بتنفيذ بنود الاتفاق المحرَّر في مواعيدها.</p></div></div>
+      <div class="card rv principle"><span class="pnum">٤</span><div><h4>مبدأ العلاقات المتداولة</h4><p>مراعاة المصلحة المشتركة المستقبلية وعدم تهديد العلاقة التجارية المستمرة، لا سيما بين الموردين والعملاء.</p></div></div>
+      <div class="card rv principle"><span class="pnum">٥</span><div><h4>مبدأ أخلاقيات التفاوض</h4><p>الالتزام بالنزاهة؛ فالمناورة التفاوضية الذكيّة مقبولة، أما الخداع والتلويث والشغب مرفوض لأن المفاوض هو واجهة مؤسسته وسمعتها.</p></div></div>
+    </div>
+
+    <div class="sub-head rv"><span class="no">٤</span><h3>تمييز المفاوضات عن المفاهيم المشابهة</h3></div>
+    <div class="tbl-wrap rv" style="margin-bottom:22px">
+      <table>
+        <thead><tr><th>وجه المقارنة</th><th>المساومة (Bargaining)</th><th>التفاوض (Negotiation)</th></tr></thead>
+        <tbody>
+          <tr><td><b>نوع القضايا</b></td><td>قضية وحيدة ومحددة (غالباً السعر أو الثمن)</td><td>قضايا متعددة ومتشابكة: سعر، جودة، ضمان، تمويل، شراكة</td></tr>
+          <tr><td><b>نوع العلاقات</b></td><td>علاقات مستقلة وعابرة تنتهي بانتهاء الصفقة</td><td>علاقات متبادلة وممتدة تراعي التعاملات المستقبلية</td></tr>
+          <tr><td><b>نمط السلوك</b></td><td>نمط الأخذ فقط (تنافسي: ربح / خسارة)</td><td>نمط الأخذ والعطاء المتوازن (تعاوني: ربح / ربح)</td></tr>
+          <tr><td><b>زمن التأثير</b></td><td>مدة زمنية قصيرة وآنّية</td><td>مدة زمنية طويلة واستراتيجية</td></tr>
+          <tr><td><b>تركيز القوة</b></td><td>مركزة في يد طرف واحد يملي شروطه (عدم تكافؤ)</td><td>موزعة ومتكافئة نسبياً بين المفاوضين</td></tr>
+          <tr><td><b>شكل العلاقة والمحصلة</b></td><td>صراع ومواجهة قد تنتهي بخسائر أو عدم رضا</td><td>علاج مشترك للمشكلة يؤدي إلى تعظيم المكاسب المشتركة</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="grid g3">
+      <div class="card rv"><span class="en">Mediation</span><h4>الوساطة</h4><p>دخول طرف ثالث محايد لمساعدة أطراف النزاع على تذليل العقبات وتقريب وجهات النظر، <b>دون فرض حلول إلزامية</b>. تنقسم إلى وساطة اختيارية (بإرادة) ووساطة إلزامية يفرضها القانون أو العقد قبل اللجوء للقضاء.</p><span class="src">— جامعة الجزائر 3، ص 10، 96</span></div>
+      <div class="card rv"><span class="en">Arbitration</span><h4>التحكيم التجاري الدولي</h4><p>وسيلة قانونية لفض النزاع عبر طرف ثالث (مُحكّم أو هيئة تحكيمية كغرفة التجارة الدولية ICC) يختاره الأطراف لإصدار <b>حكم ملزم وجاسم</b>؛ يتميز بالسرعة والخبرة وقلة التكاليف مقارنة بالقضاء العادي.</p><span class="src">— جامعة الجزائر 3، ص 10–11</span></div>
+      <div class="card rv"><span class="en">Dialogue</span><h4>الحوار</h4><p>من «Dia: عبر» و«Logos: الكلمة/المنطق». يشكّل شكلاً من أشكال الاتصال التبادلي، وهو الأداة الجوهرية التي يرتكز عليها التفاوض — إذ إن كل تفاوض يُدعى حواراً، وليس كل حوار يُدعى تفاوضاً (بقصدية تفاوضية وهدف تعاقدي).</p><span class="src">— جامعة تيارت، ص 56 · جامعة الجزائر 3، ص 49–53</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= المحور 2 ================= -->
+<section class="block" id="ax2" style="background:var(--surface2)">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="kicker"><i></i> المحور الثاني</span>
+      <h2>نظريات التفاوض الكلاسيكية والحداثة</h2>
+      <p class="lead">من التفاوض على المواقف إلى مشروع هارفارد ونظرية الحاجة ونظرية المباريات — الخريطة الفكرية لسلوك المفاوضين.</p>
+    </div>
+
+    <div class="sub-head rv"><span class="no">١</span><h3>النظرية الكلاسيكية (التفاوض على المواقف)</h3></div>
+    <div class="grid g3">
+      <div class="card rv"><span class="en">Positional Bargaining</span><h4>المبدأ: المواقف</h4><p>اتخاذ كل مفاوض موقفاً مبدئياً متمسكاً به، يتم الدفاع عنه بأقصى قدر ممكن، ثم تبادل تنازلات تدريجية بطيئة للوصول لنقطة التقاء منتصف الطريق.</p></div>
+      <div class="card rv"><span class="en">Zero-Sum / Distributive</span><h4>النمط التطبيقي: التوزيعي</h4><p>تنازع حول مساومة مقدار ثابت ومحدد من القيمة — كما في التفاوض على السعر النقدي فقط في صفقة عابرة؛ حيث يمثل كل دينار يكسبه طرف خسارة مباشرة للآخر.</p></div>
+      <div class="card rv"><span class="en">Criticism</span><h4>الانتقادات الأكاديمية</h4><p>لا تنتج اتفاقيات حكيمة أو طويلة الأجل؛ تشيع التنازل القسري، تستهلك الوقت والمال، وتضر بالعلاقات التجارية المستقبلية بين الطرفين.</p></div>
+    </div>
+
+    <div class="sub-head rv"><span class="no">٢</span><h3>النظرية الممنهجة / المبادئية — مشروع هارفارد</h3></div>
+    <div class="def-box rv" style="margin-bottom:20px">
+      <p><b>(Principled / Interest-Based Negotiation):</b> أسّسها الباحثون <b>روجر فيشر</b> و<b>وليام يوري</b> و<b>هوارد رايفا</b> في مشروع هارفارد للتفاوض؛ تعتمد على مصالح الأطراف المعنية كأساس للوصول إلى اتفاق حكيم وعادل يحقق المصلحة المشتركة بأقصى حد ممكن لكل طرف، دون استنزاف القوى في تنازلات متتالية ودون إفساد العلاقة المستقبلية.
+      <span class="src">— جامعة تيارت، ص 41–42</span></p>
+    </div>
+    <div class="grid g4">
+      <div class="card rv"><span class="en">Pillar 01</span><h4>فصل الأشخاص عن المشكلة</h4><p>التعامل مع المفاوضين كبشر مشاعر وقيم، مع العمل جنبًا إلى جنب لمواجهة المشكلة الموضوعية وليس بعضهم بعضاً شخصياً.</p></div>
+      <div class="card rv"><span class="en">Pillar 02</span><h4>التركيز على المصالح لا المواقف</h4><p>البحث عن الدوافع والاحتياجات الحقيقية الكامنة وراء المواقف المعلنة، لأن المصالح قد تتوافق بينما تتضارب المواقف.</p></div>
+      <div class="card rv"><span class="en">Pillar 03</span><h4>ابتكار خيارات متعددة للمنفعة المتبادلة</h4><p>توسيع الكعكة عبر العصف الذهني وطرح حلول خلاقة قبل محاولة الحسم، لتيسّر الوصول لحلول ذات منفعة مشتركة.</p></div>
+      <div class="card rv"><span class="en">Pillar 04</span><h4>الاحتكام إلى معايير موضوعية</h4><p>قياس عدالة الاتفاق بمرجعيات مستقلة عن إرادة الطرفين: القوانين الدولية، أسعار السوق العالمية، المعايير القياسية، أو رأي الخبراء.</p></div>
+    </div>
+
+    <div class="sub-head rv"><span class="no">٣</span><h3>نظرية الحاجة ونظرية المباريات</h3></div>
+    <div class="grid g2">
+      <div class="card rv"><span class="en">Need Theory — Nierenberg</span><h4>نظرية الحاجة في التفاوض</h4><p>تنطلق من فرضية أن <b>الحاجات وطرق إشباعها هما المحرك الأساسي والمشترك</b> لكل عملية تفاوضية؛ لولا وجود حاجة لدى كل طرف لَمِلَ الطرف الآخر مصادر إشباعها. تعمل على ثلاثة مستويات: الأفراد، المنظمات والمؤسسات الكبرى، والدول. وتصنّف المفاوضين في <b>ست فئات تطبيقية</b> وفق تقاطع حاجاتهم الخاصة والمنفانية (يعمل لأجل حاجاته المنفانية / يخدسها لأجل حاجاته الخاصة...).</p><span class="src">— جامعة تيارت، ص 42–43</span></div>
+      <div class="card rv"><span class="en">Game Theory — 1944</span><h4>نظرية المباريات ونظرية الألعاب</h4><p>تأسست رياضياً واقتصادياً عام <b>1944</b> على يد <b>جون فون نيومان</b> و<b>أوسكار مورجنسترن</b> في كتابهما «نظرية المباريات والسلوك الاقتصادي»، وطوّرها مارتن شوبك وتوماس شيلينغ. تُشرح الاختيار الاستراتيجي بين اللاعبين في المواقف المتبادلة، وتقوم على <b>خمسة عناصر</b>: الخيارات المتاحة، الأهداف، المنفعة (مؤازرة الأرباح والخسائر)، المعايير، والمعلومات.</p><span class="src">— جامعة تيارت، ص 43–46</span></div>
+    </div>
+    <div class="grid g2" style="margin-top:20px">
+      <div class="card rv"><div class="ic-top"><svg class="ic"><use href="#i-target"/></svg></div><span class="en">Zero-Sum Games</span><h4>المباريات التنافسية (المضفرية)</h4><p>تتعارض فيها المصالح كلياً بحيث يساوي مجموع أرباح طرف مجموع خسائر الطرف الآخر؛ يُطبَّق فيها مبدأ «الحل الأمثل للفائدة القصوى / الخسارة المقننة».</p></div>
+      <div class="card rv"><div class="ic-top"><svg class="ic"><use href="#i-link"/></svg></div><span class="en">Non-Zero-Sum Games</span><h4>المباريات غير التنافسية (غير المضفرية)</h4><p>تتضمن المصالح ضمن تعاون وتبادل تنازلات لزيادة العائد الكلي وتوزيع ثمار الربح على جميع الأطراف وتفادي «اللعبة الكارثية» (تدمير الطرفين معاً).</p></div>
+    </div>
+
+    <div class="sub-head rv"><span class="no">٤</span><h3>المصفوفة المقارنة للنظريات</h3></div>
+    <div class="tbl-wrap rv">
+      <table>
+        <thead><tr><th>النظرية التفاوضية</th><th>المنطلق الفكري والرواد</th><th>الآلية والتركيز التفاوضي</th><th>الحصيلة ومجال التطبيق التجاري</th></tr></thead>
+        <tbody>
+          <tr><td><b>النظرية الكلاسيكية</b> (المواقف)</td><td>المدرسة التقليدية في المساومة التوزيعية</td><td>التمسك بالمواقف الجامدة، الضغط، تقديم تنازلات بطيئة لاقتسام الفرق</td><td>ربح/خسارة (Zero-Sum)؛ الصفقات المفردة العابرة المباشرة والنقدي البحت</td></tr>
+          <tr><td><b>النظرية الممنهجة</b> (مبادئية)</td><td>مشروع هارفارد (روجر فيشر، ويليام يوري، هوارد رايفا)</td><td>فصل الأشخاص عن المشكلة، التركيز على المصالح، تعدد الخيارات، المعايير الموضوعية</td><td>ربح/ربح (Win-Win)؛ العقود الدولية المعقدة والشراكات طويلة الأمد</td></tr>
+          <tr><td><b>نظرية الحاجة</b> في التفاوض</td><td>المدرسة السلوكية والنفسية في التفاوض (نيرنبرغ)</td><td>تحليل دوافع واحتياجات الطرفين وتوجيه التكتيكات حسب دوافعهم أو ضغطها</td><td>توافق نفسي وموضوعي عبر 3 مستويات (فردي، مؤسسي، دولي)</td></tr>
+          <tr><td><b>نظرية المباريات</b> ونظرية الألعاب</td><td>المدرسة الرياضية والاقتصادية (فون نيومان، مورجنسترن، شوبك)</td><td>الاختيار العقلاني للبدائل بناءً على تصفف القوى وتوقعات ردود الفعل</td><td>ترشيد القرار التفاوضي والتحول من المباريات الصفرية إلى التعاونية اللامضفرية</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ================= المحور 3 ================= -->
+<section class="block" id="ax3">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="kicker"><i></i> المحور الثالث</span>
+      <h2>مراحل وخطوات التفاوض التجاري الدولي</h2>
+      <p class="lead">سلسلة متتابعة من المراحل التركيبية المنطقية ومترابطة من المراحل — تصب مخرجات كل مرحلة كمدخلات في المرحلة التي تليها.</p>
+    </div>
+
+    <div class="mini80 rv">
+      <span class="big">80%</span>
+      <p style="max-width:62ch;color:var(--muted)">من نجاح المفاوضات يتعود على <b style="color:var(--ink)">مرحلة ما قبل التفاوض</b> (الإعداد والتخطيط والتحضير الاستراتيجي)، مقابل <b style="color:var(--ink)">20%</b> فقط للتكتيكات — وإهمالها يؤدي إلى فقدان الشرف في تحديد الوجهة، وسوء توزيع الموارد، وإدارة التفاوض بانتقاد الأزمات والطوارئ. <span class="src" style="margin:0">— جامعة تيارت، شكل مقر 3، ص 38</span></p>
+    </div>
+
+    <div class="sub-head rv"><span class="no">١</span><h3>مراحل العملية التفاوضية التجارية الدولية</h3></div>
+    <div class="phase rv">
+      <span class="p-dot">١</span>
+      <h4>مرحلة ما قبل التفاوض <small>الإعداد والتخطيط والتحضير الاستراتيجي</small></h4>
+      <div class="p-body">
+        <div class="p-item"><b>١. تحديد وتشخيص القضية التفاوضية:</b> حصر نطاق القضية، ونقاط الالتقاء ونقاط الاختلاف المتطرفة، وتقدير مدى قابلية فصل القضايا وربطها بحلول مقبولة.</div>
+        <div class="p-item"><b>٢. تحديد الهدف العام والأهداف الجزئية وترتيب الأولويات:</b> الأولويات <b>المثالية</b> (سقف التوقعات)، <b>الواقعية</b> (ممكنة التحقيق)، <b>الدنيا</b> (الحد الأدنى الذي لا يمكن التنازل دونها) — وفق ثمانية معايير: الموضوعية، الوضوح، المرونة، الواقعية، القابلية للقياس، السرعة، القابلية للمراجعة، والاقتناع بها.</div>
+        <div class="p-item"><b>٣. تحديد الأطراف المتفاوضة وتشكيل وتدريب الفريق:</b> مقارنة التفاوض الفردي (سرعة الإنجاز، وضوح المسؤولية) بالتفاوض الفريق (تكامل الخبرات، المرونة، وقع الحجب الالتزام بحجة استشارة الزملاء)، وتدريبهم عبر محاكاة السيناريوهات وتوزيع الأدوار.</div>
+        <div class="p-item"><b>٤. دراسة وتقييم العلاقة وجمع وتحليل المعلومات:</b> جمع وتصنيف البيانات حول الموضوع، والقدرات الذاتية، والطرف الآخر، والبيئة الكلية، والاختلافات الثقافية.</div>
+        <div class="p-item"><b>٥. تحديد مكان التفاوض والبرنامج الزمني وأجندة الأعمال:</b> اختيار المكان وتجهيزه، وإعداد الجدول الزمني، وأجندة تبدأ بالقضايا الأساسية أو تكسر الجمود بالثانوية أو تُقسّم للجان.</div>
+        <div class="p-item"><b>٦. تهيئة المناخ التفاوضي والمباحثات التمهيدية:</b> بناء جسور التواصل الأولى، ونطبع إنطباع مبدئي، واستكشاف نوايا الطرف المقابل واستراتيجيته.</div>
+      </div>
+    </div>
+    <div class="phase rv">
+      <span class="p-dot">٢</span>
+      <h4>مرحلة التفاوض الفعلي <small>جلسات التفاوض والمناقشة على المائدة</small></h4>
+      <div class="p-body">
+        <div class="p-item"><b>١. البدء الإيجابي للجلسات:</b> إزالة التوتر أو البدء بنقاط الاتفاق المشتركة لتكسر لبيد «نعم» وبناء الثقة.</div>
+        <div class="p-item"><b>٢. إدارة الحوار وتوظيف الأسئلة وأدوات الإقناع:</b> عرض الحجج والمستندات المؤيدة، استخدام الأسئلة الموجهة لتغيير مسار الحديث، وقراءة لغة الجسد (تمثل ~60% من المخاطبة الإنسانية).</div>
+        <div class="p-item"><b>٣. تطبيق السياسات والمناورات التفاوضية:</b> التحرك الذكي بين السياسات (الاختراق مقابل الجدار الحديدي، التعمية مقابل التعيين، التوسع مقابل التضييق والحصار، التناول المتدرج مقابل الصفقة الواحدة)، ومناورات <b>البدء</b> (تجاوز الطلب، عدم قول نعم لأول عرض، إظهار الامتناع)، ومناورات <b>الوساطة</b> (الرجوع للسلسلة العليا، التلميح الإلزامي الإداري)، ومناورات <b>النهاية</b> (تجميد التنازلات مقابل مكاسب، الحذر من الضربة الأخيرة والطلبات المفاجئة).</div>
+        <div class="p-item"><b>٤. تقييم الجلسات ومعالجة الاعتراضات والمأزق التفاوضي:</b> التعامل الإيجابي مع الاعتراضات (تحويلها من شكاوى سلبية إلى تفاعلات)، وعند الوصول لمأزق (طريق مسدود): تغيير آلية التفاوض، طلب استراحة، تأجيل النقطة الخلافية، أو الاستعانة بطرف ثالث (مستشار، وسيط، محكّم).</div>
+      </div>
+    </div>
+    <div class="phase rv">
+      <span class="p-dot">٣</span>
+      <h4>مرحلة ما بعد التفاوض <small>إبرام الاتفاق، التنفيذ، التقييم والتوثيق</small></h4>
+      <div class="p-body">
+        <div class="p-item"><b>١. إعداد المسودة المبدئية للقرار النهائي:</b> مطابقة مخرجات التفاوض مع الأهداف المسطرة مسبقاً قبل الاعتماد النهائي.</div>
+        <div class="p-item"><b>٢. تحرير وتوقيع الاتفاق وتوثيقه قانونياً (العقد التجاري الدولي):</b> تحويل الوعود إلى التزامات قانونية بدقة ووضوح تشمل مواصفات الأداء، شروط السداد، جدول التسليم، شروط التعديل، ضمانات الأداء، وآليات تسوية الخلافات.</div>
+        <div class="p-item"><b>٣. تنفيذ بنود الاتفاق:</b> تشكيل لجنة أو فريق مشترك متابعة لتنفيذ الجدول الزمني بالتعاون، كل طرف وفق عدادته الاتفاقية.</div>
+        <div class="p-item"><b>٤. تقييم وتوثيق العملية التفاوضية:</b> مراجعة الأداء الكلي للفريق، توثيق نقاط القوة والضعف، وتقييم المعلومات المستخلصة للاستفادة منها في المفاوضات التجارية المستقبلية.</div>
+      </div>
+    </div>
+
+    <div class="sub-head rv"><span class="no">٢</span><h3>نموذج المراحل الخمس وفق (Hay & McCarthy)</h3></div>
+    <div class="def-box rv" style="margin-bottom:24px">
+      <p>لخّص الباحثان <b>ستيف هاي (Steve Hay)</b> و<b>آلان مكارثي (Alan McCarthy)</b> في كتابهما «Advanced Negotiation Techniques» مسار المفاوضات التجارية في <b>خمس مراحل متسلسلة ومتداخلة</b>. <span class="src" style="margin:0">— جامعة غليزان، ص 33–34</span></p>
+    </div>
+    <div class="process rv">
+      <div class="step"><span class="sno">1</span><span class="en">Plan</span><h5>التخطيط</h5><p>تحمل الحجم الأكبر والشامل في العملية التفاوضية؛ تحليل المراحل الأربعة السابقة: الأهداف، المعلومات، البدائل منذ البداية حتى النهاية.</p></div>
+      <div class="step"><span class="sno">2</span><span class="en">Discuss</span><h5>الحوار والمناقشة</h5><p>التقاء طرفي التفاوض وجهًا لوجه على مائدة المناقشات الموضوع، واستكشاف المواقف والشروط، وبناء مناخ الفهم الأولي.</p></div>
+      <div class="step"><span class="sno">3</span><span class="en">Propose</span><h5>الاقتراحات والعروض</h5><p>تقديم العروض المبدئية والمقترحات البديلة خاصة بموضوع الصفقة على مائدة التفاوض لإطلاق دينامية الأخذ والعطاء.</p></div>
+      <div class="step"><span class="sno">4</span><span class="en">Trade</span><h5>الممارسة التجارية والمقايضة</h5><p>توظيف تقنيات الإقناع والمقايضات المشروطة (تنازل مقابل مكسب)، والرد على الاستفسارات، والاتفاق على الأسعار والتكاليف والشروط.</p></div>
+      <div class="step"><span class="sno">5</span><span class="en">Agree & Confirm</span><h5>الموافقة والتأكيد</h5><p>تثبيت العرض النهائي المتفق عليه وتأكيده رسمياً بتوقيع وتوثيق لإتمام الصفقة التجارية.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= المحور 4 ================= -->
+<section class="block" id="ax4" style="background:var(--surface2)">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="kicker"><i></i> المحور الرابع</span>
+      <h2>محددات العملية التفاوضية</h2>
+      <p class="lead">القوة، القدرة، الرغبة، المصلحة، البيئة والمناخ، والمعلومات — العوامل الثابتة والمتغيرة التي تحكم سلوك المفاوضين وتحدد سقف النتائج.</p>
+    </div>
+
+    <div class="equation-zone rv" style="margin-bottom:55px">
+      <div class="eq-display">
+        <span class="box">الأداء التفاوضي المتمايز</span>
+        <span class="op">=</span>
+        <span class="box">القدرة التفاوضية</span>
+        <span class="op">×</span>
+        <span class="box">الرغبة التفاوضية</span>
+        <span class="op">⟵</span>
+        <span class="eq-res" id="eqOut">—</span>
+      </div>
+      <div class="sliders">
+        <div class="sld"><label>القدرة التفاوضية <output id="oCap">70</output></label><input type="range" id="sCap" min="0" max="100" value="70"></div>
+        <div class="sld"><label>الرغبة التفاوضية <output id="oWish">70</output></label><input type="range" id="sWish" min="0" max="100" value="70"></div>
+        <div class="sld"><label>السياق: قوة · معلومات · بيئة <output id="oCtx">70</output></label><input type="range" id="sCtx" min="0" max="100" value="70"></div>
+      </div>
+      <div class="eq-meter"><i id="eqBar"></i></div>
+      <div class="eq-verdict" id="eqVerdict">جرّب تحريك المؤشرات</div>
+      <p class="eq-hint">معادلة ذهبية تجريبية: الأداء المتمايز = القدرة × الرغبة في إطار القوة التفاوضية، المصلحة المشتركة، المعلومات التفاوضية، والبيئة والمناخ — (جامعة غليزان ص 42–46 · جامعة الجزائر 3 ص 22–25)</p>
+    </div>
+
+    <div class="grid g3" style="margin-bottom:30px">
+      <div class="card rv"><div class="ic-top"><svg class="ic"><use href="#i-shield"/></svg></div><span class="en">Negotiation Power</span><h4>١ · القوة التفاوضية</h4><p>القدرة على التأثير في الطرف الآخر وتوجيه سلوكه لقبول المقترحات أو تقديم التنازلات. <b>حدودها:</b> فلسفة السلطة والتفويض الرسمي. <b>مصادرها الثمانية:</b> درجة الحاجة، تعدد الخيارات (BATNA)، عنصر الوقت، العلاقات والسمعة، حجم الاستثمار المسبق، المصداقية، المعرفة والمعلومات، المهارات التفاوضية الشخصية. <b>سلطاتها الثماني:</b> الشرعية، الثواب، العقاب، القيم والمبادئ، التأثير الشخصي (الكاريزما)، الخبرة والتفوق الفني، المواقف، المعلومات.</p><span class="src">— جامعة تيارت، ص 69–72 · الجزائر 3 ص 23</span></div>
+      <div class="card rv"><div class="ic-top"><svg class="ic"><use href="#i-users"/></svg></div><span class="en">Negotiation Capacity</span><h4>٢ · القدرة التفاوضية</h4><p>مدى البراعة والمهارة والكفاءة العلمية والعملية التي يتمتع بها أعضاء الفريق المفاوض. تُحقَّق عبر <b>خمس ركائز:</b> الاختيار الدقيق لأعضاء الفريق، تحقيق الانسجام والتوافق الداخلي، التدريب والتحفيز العالي، المتابعة الحثيثة والعزل عن المؤثرات الضارة، وتوفير التسهيلات المادية وغير المادية (لوجستية، مالية، تكنولوجية). وتستند إلى خصائص مكتسبة: التحليل، المعرفة الاقتصادية والقانونية واللغوية والنفسية والقياسية، القوة الشخصية، الذكاء، سرعة بديهة، حسن التصرف، الإجادة في الاستماع، الملاحظة، الإدراك.</p><span class="src">— جامعة غليزان، ص 45–46 · الجزائر 3 ص 62–65</span></div>
+      <div class="card rv"><div class="ic-top"><svg class="ic"><use href="#i-heart"/></svg></div><span class="en">Willingness / Desire</span><h4>٣ · الرغبة التفاوضية</h4><p>الدافع النفسي والإرادي، الذاتي والمشترك، لدى الأطراف؛ وتشترط <b>توافر إرادة حقيقية مشتركة واقتناع تام</b> لدى الطرفين بأن التفاوض هو الوسيلة الوحيدة أو الأفضل لحل النزاع، وأن أي طريقة أخرى (صراع مفتوح، تحقيق طويل، جمود) سيكون أمراً مكلفاً ومستنزفاً للموارد والوقت. وعلى المستوى الفردي: التهيئة النفسية والحفاظ على الاتزان العاطفي والمرونة والحضور طوال الجلسات.</p><span class="src">— جامعة الجزائر 3، ص 22–24</span></div>
+      <div class="card rv"><div class="ic-top"><svg class="ic"><use href="#i-link"/></svg></div><span class="en">Negotiation Interest</span><h4>٤ · المصلحة التفاوضية</h4><p>المحرك الجوهري والدافع الأول لقيام التفاوض واستمراره: <b>«لا تفاوض بدون مصلحة، وانهيار المصلحة يعني انهيار التفاوض»</b>. <b>منهج المصلحة المشتركة (التعاون):</b> التكامل الأمامي، تطوير التعاون الحالي، تعميق العلاقة القائمة. <b>منهج الصراع (عند اختلال التوازن):</b> الإنهاك (استنزاف القوى)، التسلط (التفتت الداخلي)، إحكام السيطرة، الحصر (الغزو المنظم)، والتدمير الذاتي.</p><span class="src">— جامعة الجزائر 3، ص 28، 61، 72–77</span></div>
+      <div class="card rv"><div class="ic-top"><svg class="ic"><use href="#i-leaf"/></svg></div><span class="en">Environment & Climate</span><h4>٥ · البيئة التفاوضية والمناخ المحيط</h4><p><b>البيئة الخارجية:</b> المتغيرات الاقتصادية الدولية (العرض والطلب، التضخم، أسعار الصرف)، التشريعات القانونية، والاختلافات الثقافية والاجتماعية (اللغة، القيم، نظرة الثقافة إلى القوة والعقود). <b>المناخ التفاوضي:</b> درجة سخونة القضية وتوازن المصلحة، المناخ النفسي والاجتماعي للجلسات، والمكان المادي — إذ يمنح التفاوض على أرض المفاوض ميزة «اللعب على أرضه»، ولذا يُفضَّل اختيار <b>منطقة محايدة</b> (قاعات مؤتمرات، فنادق دولية مجهزة).</p><span class="src">— الجزائر 3 ص 25–30 · غليزان ص 42–46</span></div>
+      <div class="card rv"><div class="ic-top"><svg class="ic"><use href="#i-eye"/></svg></div><span class="en">Information — STROB</span><h4>٦ · المعلومات التفاوضية</h4><p>الوقود المحرك لجميع المحددات السابقة؛ فلا يُمكن تعبئة القوة أو القدرة أو قراءة البيئة بدون نظام معلوماتي تفاوضي متكامل يجيب عن أسئلة الاستراتيجية (من نحن؟ من خصمنا؟ ماذا نريد؟ كيف نحقق أهدافنا؟...). يُعد نموذج <b>STROB</b> أداة أكاديمية لتصيد النهايات المفتوحة لتحصيل المعلومات الكافية حول الطرف الآخر.</p><span class="src">— جامعة غليزان، ص 43–45</span></div>
+    </div>
+
+    <div class="sub-head rv"><span class="no">★</span><h3>نموذج STROB — خمسة أبعاد للمعلومات</h3></div>
+    <div class="strob rv">
+      <div class="s-tile"><div class="letter">S</div><b>المجال</b><span>Scope</span><p>اختبار المقاييس والافتراضات ومستوى أهلية الصلاحيات للطرف المتفاوض.</p></div>
+      <div class="s-tile"><div class="letter">T</div><b>الشروط</b><span>Terms</span><p>فهم متطلبات الصفقة وشروطها الفنية والمالية وكيفية تحقيقها.</p></div>
+      <div class="s-tile"><div class="letter">R</div><b>الأخطار</b><span>Risks</span><p>تحديد الفرص وتقييم المخاطر التجارية والقانونية وآليات توزيع تحمّلها بين الطرفين.</p></div>
+      <div class="s-tile"><div class="letter">O</div><b>الخيارات</b><span>Options</span><p>استكشاف البدائل المتاحة لدى الطرفين لتوسيع منطقة الاتفاق.</p></div>
+      <div class="s-tile"><div class="letter">B</div><b>العقبات</b><span>Barriers</span><p>تجاوز مجالات الاعتراض أو النقاط الحساسة التي قد تثير المقاومة أثناء التفاوض.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= المراجع ================= -->
+<section class="block" id="refs">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="kicker"><i></i> قائمة المراجع</span>
+      <h2>المصادر الأكاديمية المعتمدة</h2>
+      <p class="lead">الجامعات الجزائرية والعربية — طبقاً للنشرة المدرسية المعتمدة في المقياس.</p>
+    </div>
+    <div class="grid g2">
+      <div class="ref-item rv"><span class="rno">١</span><p><b>د. فايزة أوقاس أو يأت (2023–2024):</b> مطبوعة بيداغوجية في مقياس تقنيات التفاوض، كلية العلوم الاقتصادية والعلوم التجارية وعلوم التسيير، جامعة الجزائر 3.</p></div>
+      <div class="ref-item rv"><span class="rno">٢</span><p><b>د. الحبيتري (2021–2022):</b> محاضرات في مقياس تقنيات التفاوض التجاري، كلية العلوم الاقتصادية والتجارية وعلوم التسيير، جامعة غليزان.</p></div>
+      <div class="ref-item rv"><span class="rno">٣</span><p><b>د. مصطفى بلقربوز (2023–2024):</b> مطبوعة بيداغوجية في مقياس تقنيات التفاوض الدولي (السنة الثالثة تجارة دولية)، جامعة ابن خلدون — تيارت.</p></div>
+      <div class="ref-item rv"><span class="rno">٤</span><p><b>د. سفيان عيساوي:</b> مطبوعة مقياس تقنيات التفاوض الدولي، كلية العلوم الاقتصادية والتجارية وعلوم التسيير، جامعة الجزائر 3.</p></div>
+      <div class="ref-item rv"><span class="rno">٥</span><p><b>جامعة 20 أوت 1955 — سكيكدة:</b> الإطار القانوني لمفاوضات عقود التجارة الدولية، كلية الحقوق والعلوم السياسية.</p></div>
+      <div class="ref-item rv"><span class="rno">٦</span><p><b>د. محسن أحمد الخضيري (2003):</b> مبادئ التفاوض، مجموعة النيل العربية للنشر والتوزيع، القاهرة (المرجع التأسيسي المعتمد في المطبوعات الجامعية الجزائرية).</p></div>
+    </div>
+
+    <div class="sub-head rv"><span class="no">✓</span><h3>بطاقة المراجعة السريعة للامتحانات</h3></div>
+    <div class="tbl-wrap rv">
+      <table>
+        <thead><tr><th>المحور الدراسي</th><th>الكلمات المفتاحية والمفاهيم الأساسية</th><th>القاعدة الذهبية للحفظ والاستيعاب</th></tr></thead>
+        <tbody>
+          <tr><td><b>ماهية التفاوض وتمييزه</b></td><td>مصلحة مشتركة + قضية نزاعية؛ المبادئ الـ5؛ المساومة، الوساطة، التحكيم، الحوار</td><td>المساومة والحوار والتنازل أدوات داخل التفاوض، أما الوساطة والتحكيم والقضاء فهي بدائل عند تعذر الحل الثنائي.</td></tr>
+          <tr><td><b>نظريات التفاوض</b></td><td>الكلاسيكية (المواقف / توزيعي صفرى)؛ الممنهجة (المصالح / تكاملي)؛ الحاجة؛ المباريات</td><td>التفاوض الممنهج يرتكز على 4 دعائم: فصل الأشخاص عن المشكلة، التركيز على المصالح، تعدد الخيارات، المعايير الموضوعية.</td></tr>
+          <tr><td><b>مراحل التفاوض الدولي</b></td><td>ما قبل التفاوض (80% إعداد)؛ التفاوض الفعلي (مناورات وتكتيكات)؛ ما بعد التفاوض (عقد، تنفيذ، تقييم)</td><td>نموذج الخماسي (Hay & McCarthy): التخطيط (Plan)، المناقشة (Discuss)، العروض (Propose)، المقايضة (Trade)، التأكيد (Agree).</td></tr>
+          <tr><td><b>محددات العملية التفاوضية</b></td><td>القوة (السلطات الـ8 وBATNA)، القدرة، الرغبة، المصلحة، البيئة والمناخ، والمعلومات (نموذج STROB)</td><td>معادلة النجاح: الأداء التفاوضي المتمايز = القدرة التفاوضية × الرغبة التفاوضية، في ظل القوة والمعلومات والمناخ المحيط.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ================= QCMS / QUIZZES ================= -->
+<section class="block dark-sec" id="quiz">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="kicker" style="color:var(--gold2)"><i></i> QCMS — Quiz Control & Management System</span>
+      <h2>مركز الاختبارات ولوحة القياس</h2>
+      <p class="lead">مؤقّت زمني، تصحيح فوري بإجابات نموذجية وشروح، حفظ أفضل النتائج محلياً، ومولّد أسئلة خاص بك (الأساتذة والطلبة).</p>
+    </div>
+
+    <div class="qcms-grid rv" id="qcmsTiles"></div>
+
+    <div class="sub-head rv"><span class="no">١</span><h3>الاختبارات المتاحة</h3></div>
+    <div class="quiz-list rv" id="quizGrid"></div>
+
+    <div class="sub-head rv"><span class="no">٢</span><h3>مولّد الأسئلة — إدارة المحتوى</h3></div>
+    <div class="builder rv">
+      <h4><svg class="ic"><use href="#i-plus"/></svg> أضف سؤالك إلى أي اختبار</h4>
+      <p class="hint">يُحفظ سؤالك في متصفحك ويُدمج تلقائياً في الاختبار المختار — مناسب للمراجعة الموجهة ولأساتذة المقياس.</p>
+      <div class="b-row">
+        <select id="bTarget" aria-label="الاختبار المستهدف"></select>
+        <input type="text" id="bQ" placeholder="نص السؤال..." maxlength="220">
+      </div>
+      <div class="b-row">
+        <input type="text" id="bO1" placeholder="الخيار ١" maxlength="140">
+        <input type="text" id="bO2" placeholder="الخيار ٢" maxlength="140">
+        <input type="text" id="bO3" placeholder="الخيار ٣" maxlength="140">
+        <input type="text" id="bO4" placeholder="الخيار ٤" maxlength="140">
+      </div>
+      <div class="b-correct" id="bCorrect">
+        <span style="font-weight:800;color:var(--gold2)">الجواب الصحيح:</span>
+        <label><input type="radio" name="bc" value="0" checked> الخيار ١</label>
+        <label><input type="radio" name="bc" value="1"> الخيار ٢</label>
+        <label><input type="radio" name="bc" value="2"> الخيار ٣</label>
+        <label><input type="radio" name="bc" value="3"> الخيار ٤</label>
+      </div>
+      <button class="btn-outline-gold" id="bAdd"><svg class="ic"><use href="#i-plus"/></svg> إضافة السؤال</button>
+      <div class="custom-list" id="customList"></div>
+    </div>
+
+    <div class="sub-head rv"><span class="no">٣</span><h3>إدارة السجل</h3></div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap" class="rv">
+      <button class="btn-outline-gold" id="resetScores"><svg class="ic"><use href="#i-refresh"/></svg> تصفير نتائج الاختبارات</button>
+      <button class="btn-outline-gold" id="resetCards"><svg class="ic"><use href="#i-refresh"/></svg> تصفير إتقان البطاقات</button>
+      <button class="btn-outline-gold" id="wipeAll"><svg class="ic"><use href="#i-trash"/></svg> مسح كل بيانات المنصة</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FLASHCARDS ================= -->
+<section class="block" id="cards">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="kicker"><i></i> البطاقات التعليمية</span>
+      <h2>بطاقات الحفظ السريع</h2>
+      <p class="lead">انقر البطاقة لقلبها · أسهم لوحة المفاتيح للتنقل · المسافة للقلب · سجّل إتقانك ويتابعها النظام معك.</p>
+    </div>
+    <div class="fc-controls rv" id="fcChips"></div>
+    <div class="fc-stage rv">
+      <div class="fc-card" id="fcCard" tabindex="0" role="button" aria-label="بطاقة تعليمية، انقر للقلب">
+        <div class="fc-face fc-front">
+          <span class="cat" id="fcCat"></span>
+          <div class="fc-q" id="fcFront"></div>
+          <span class="tap"><svg class="ic"><use href="#i-refresh"/></svg> انقر أو اضغط المسافة لعرض الشرح</span>
+        </div>
+        <div class="fc-face fc-back">
+          <span class="bk">الشرح والتعريف</span>
+          <div class="fc-a" id="fcBack"></div>
+        </div>
+      </div>
+    </div>
+    <div class="fc-nav rv">
+      <button class="fc-btn" id="fcPrev" aria-label="السابق"><svg class="ic"><use href="#i-chr"/></svg></button>
+      <button class="fc-btn flip" id="fcFlip"><svg class="ic"><use href="#i-refresh"/></svg> اقلب البطاقة</button>
+      <button class="fc-btn" id="fcNext" aria-label="التالي"><svg class="ic"><use href="#i-chl"/></svg></button>
+      <button class="fc-btn" id="fcShuffle" aria-label="خلط"><svg class="ic"><use href="#i-shuffle"/></svg></button>
+    </div>
+    <div class="fc-nav rv">
+      <button class="fc-btn judge yes" id="fcKnow"><svg class="ic"><use href="#i-check"/></svg> أتقنتها</button>
+      <button class="fc-btn judge no" id="fcAgain"><svg class="ic"><use href="#i-refresh"/></svg> راجعها لاحقاً</button>
+    </div>
+    <div class="fc-prog rv">
+      <div class="bar"><i id="fcBar"></i></div>
+      <div class="txt" id="fcTxt"></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <div class="f-brand">
+          <span class="logo" style="width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 32% 28%,var(--gold2),var(--gold) 55%,var(--gold3));display:grid;place-items:center;color:#1c2f4e;font-family:'Amiri';font-weight:700;font-size:1.15rem">ت</span>
+          <div><b style="color:#efe9da">QCMS — تقنيات المفاوضات التجارية الدولية</b><br><small style="color:var(--gold2)">منصة تعليمية تفاعلية</small></div>
+        </div>
+        <p>إعداد أكاديمي منظم وفق المقررات البيداغوجية للجامعات الجزائرية (مقياس تقنيات التفاوض الدولي وعقود التجارة الدولية — كليات العلوم الاقتصادية والتجارية وعلوم التسيير والحقوق)، يُستند إلى النشرة المدرسية وجامع بين الدقة الأكاديمية والوضوح المنهجي وسهولة الاستيعاب.</p>
+      </div>
+      <div>
+        <h5>روابط سريعة</h5>
+        <a href="#ax1">المحور الأول: ماهية المفاوضات</a>
+        <a href="#ax2">المحور الثاني: النظريات</a>
+        <a href="#ax3">المحور الثالث: المراحل والخطوات</a>
+        <a href="#ax4">المحور الرابع: المحددات</a>
+        <a href="#quiz">مركز الاختبارات QCMS</a>
+        <a href="#cards">البطاقات التعليمية</a>
+      </div>
+      <div>
+        <h5>المراجع الرئيسية</h5>
+        <p style="font-size:.82rem">مطبوعات جامعة الجزائر 3 · جامعة غليزان · جامعة تيارت · جامعة سكيكدة · مبادئ التفاوض (د. الخضيري، 2003) — القاهرة.</p>
+      </div>
+    </div>
+    <div class="f-bot">© 2025 QCMS · منصة تعليمية غير ربحية للمراجعة الجامعية — جميع الحقوق الأكاديمية لمصادريها</div>
+  </div>
+</footer>
+
+<!-- ================= QUIZ MODAL ================= -->
+<div id="overlay" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="m-head" id="mHead">
+      <div class="mt"><b id="mTitle"></b><span id="mSub"></span></div>
+      <div class="m-timer" id="mTimer"><svg class="ic"><use href="#i-clock"/></svg><span id="mTime">00:00</span></div>
+      <button class="m-close" id="mClose" aria-label="إغلاق"><svg class="ic"><use href="#i-x"/></svg></button>
+    </div>
+    <div class="m-bar"><i id="mBar"></i></div>
+    <div class="m-body" id="mBody"></div>
+    <div class="m-foot" id="mFoot" style="display:none">
+      <span class="m-count" id="mCount"></span>
+      <button class="btn btn-gold" id="mNext">السؤال التالي <svg class="ic"><use href="#i-chl"/></svg></button>
+    </div>
+  </div>
+</div>
+
+<div id="toast"><svg class="ic"><use href="#i-check"/></svg><span id="toastTxt"></span></div>
+
+<svg width="0" height="0"><defs><linearGradient id="goldgrad" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0" stop-color="#e2c579"/><stop offset="1" stop-color="#c9a24b"/>
+</linearGradient></defs></svg>
+
+<script>
+/* ============================================================
+   QCMS — بيانات الاختبارات
+============================================================ */
+const QUIZZES=[
+{id:'q1',n:'١',title:'المحور الأول: ماهية المفاوضات التجارية الدولية',desc:'المفهوم والأبعاد، الأشكال والموضوعات، الخصائص والمبادئ الخمسة، وتمييز المساومة والوساطة والتحكيم والحوار.',qs:[
+ {q:'تتحدد رؤية النظر الأكاديمية لمفهوم التفاوض بين ثلاثة أبعاد مكتملة، هي:',o:['فن وعلم وأدب','قوة وثروة وسلطة','تاريخ وحاضر ومستقبل','فرد ومجتمع ودولة'],a:0,e:'(جامعة الجزائر 3، ص 1–2): التفاوض فن في توظيف التكتيكات والمهارات السلوكية، وأدب في انتقاء الكلمة وأسلوب الخطاب، وعلم قائم على نظريات وقوانين ومبادئ منهجية قابلة للدراسة والتخطيط.'},
+ {q:'اصطلاحاً، المفاوضات عملية حوار ومناقشة وتفاعل ديناميكي بين طرفين أو أكثر، مع وجود:',o:['عقد موثق سلفاً','غرض نزاعي (اختلاف في وجهات النظر) أو أكثر','رأي قانوني ملزم مسبق','غياب كامل لأي خلاف'],a:1,e:'الغرض النزاعي أو اختلاف وجهات النظر شرط وجودي للتفاوض، بهدف تقريب المواقف والوصول لاتفاق مقبول يحقق المصلحة المشتركة (جامعة تيارت، ص 7).'},
+ {q:'تعرف المفاوضات التجارية الدولية بأنها عملية اتصالية ذات مضمون:',o:['عسكري وأمني','رياضي وترفيهي','اقتصادي وتجاري وقانوني','ديني وثقافي فقط'],a:2,e:'تجري بين طرفين أو أكثر يمثلون دولاً أو أنظمة قانونية واقتصادية مختلفة، لتبادل المقترحات والمساومات لفض نزاع أو إبرام عقود تجارية دولية (جامعة غليزان، ص 13).'},
+ {q:'ترتكز أدبيات التفاوض التجاري الدولي على ثلاثة مستويات دقيقة مرتبطة بالتنفيذ، هي:',o:['الاستراتيجية، السياسة والتقنيات، التكتيكات','الإعداد، التنفيذ، التقييم','العرض، الطلب، السعر','الشراء، البيع، التخزين'],a:0,e:'الاستراتيجية (التوجهات الكبرى)، السياسة والتقنيات (الخطوط الإرشادية لكل جلسة)، التكتيكات (المبادرات الظرفية قصيرة الأجل) — (جامعة تيارت، ص 8).'},
+ {q:'من الموضوعات الرئيسية السبعة للمفاوضات التجارية الدولية:',o:['لون شعار الشركة','تاريخ تأسيس الطرفين','نوع السلعة ومواصفاتها الفنية','عدد موظفي الشركة'],a:2,e:'من الموضوعات السبعة: نوع السلعة ومواصفاتها الفنية، متغيرات العرض والطلب والسعر، الكمية، شروط الدفع والاعتماد المستندي، آجال التسليم، Incoterms، والمرجعية القانونية للمنازعات (جامعة غليزان، ص 22–23).'},
+ {q:'حسب نموذج دارمون (Darmon)، تُصنف أطراف التفاوض التجاري إلى أربعة أنماط، منها:',o:['G2P','X2X','A2A','B2B (بين المؤسسات)'],a:3,e:'الأنماط الأربعة: B2B بين المؤسسات، B2C بين مؤسسة ومستهلك، C2B بين بائع خاص ومؤسسة، C2C بين الأفراد (جامعة غليزان، ص 18–20).'},
+ {q:'من مبادئ التفاوض الخمسة الأساسية:',o:['مبدأ الغموض','مبدأ التدهور','مبدأ المنفعة','مبدأ الصراع الدائم'],a:2,e:'المبادئ الخمسة: القدرة الذاتية، المنفعة، الالتزام، العلاقات المتداولة، وأخلاقيات التفاوض (جامعة الجزائر 3، ص 8).'},
+ {q:'الأداة التي تُبث نفعاً تنافسياً بحتة لخفض الثمن، وسلوكها صفري (ربح/خسارة)، وعلاقاتها عابرة تنتهي بانتهاء الصفقة هي:',o:['الوساطة','التحكيم','الحوار','المساومة (Bargaining)'],a:3,e:'المساومة عملية تنافسية نفعية بحتة ذات وقت قصير، تُستخدم داخل التفاوض لكن التفاوض أوسع وأعمق وأرقى قيماً (جامعة الجزائر 3، ص 9–12).'},
+ {q:'دخول طرف ثالث محايد لمساعدة أطراف النزاع على تذليل العقبات وتقريب وجهات النظر دون فرض حلول إلزامية يسمى:',o:['التحكيم','الوساطة (Mediation)','الاستبدال','التقاضي'],a:1,e:'تقسم الوساطة إلى اختيارية (بإرادة) وإلزامية يفرضها القانون أو العقد قبل اللجوء للقضاء (جامعة الجزائر 3، ص 10، 96).'},
+ {q:'يختلف التحكيم التجاري الدولي عن التفاوض والوساطة في أن:',o:['حكمه ملزم وجاسم لجميع الأطراف','لا يتضمن طرفاً ثالثاً','لا ينتج عنه أي قرار','قراره لا يقبل النفاذ'],a:0,e:'يختار الأطراف محكّماً أو هيئة تحكيمية (كغرفة التجارة الدولية ICC) لإصدار حكم ملزم وجاسم، ويتميز بالسرعة والخبرة وقلة التكاليف (جامعة الجزائر 3، ص 10–11).'}
+]},
+{id:'q2',n:'٢',title:'المحور الثاني: نظريات التفاوض الكلاسيكية والحداثة',desc:'المواقف والتوزيعي، مشروع هارفارد الممنهج، نظرية الحاجة، ونظرية المباريات ونظرية الألعاب.',qs:[
+ {q:'تقوم النظرية الكلاسيكية للتفاوض على:',o:['المصالح العميقة','المواقف (Positional Bargaining)','المعايير الموضوعية','تعدد الخيارات'],a:1,e:'اتخاذ كل مفاوض موقفاً مبدئياً متمسكاً به، ثم تنازلات تدريجية بطيئة للوصول لنقطة التقاء منتصف الطريق (جامعة غليزان، ص 15–17).'},
+ {q:'النمط التطبيقي المرافق للمواقف (التفاوض التجاري التوزيعي) يقوم على:',o:['مساومة مقدار ثابت ومحدد من القيمة (صفر مجموع)','توسيع الكعكة وخلق قيمة','المصلحة المشتركة','المعايير القياسية'],a:0,e:'مثاله: التفاوض على السعر النقدي فقط في صفقة عابرة، حيث يمثل كل دينار يكسبه طرف خسارة مباشرة للطرف الآخر (جامعة تيارت، ص 41–46).'},
+ {q:'أسّس النظرية الممنهجة (المبادئية) في مشروع هارفارد للتفاوض:',o:['نيومان ومورجنسترن','هي وماكارثي','شوبك ونيرنبرغ','روجير فيشر ووليام يوري وهوارد رايفا'],a:3,e:'فيشر ويوري ورايفا يعتمدون مصالح الأطراف المعنية كأساس للوصول لاتفاق حكيم وعادل دون استنزاف القوى ودون إفساد العلاقة المستقبلية (جامعة تيارت، ص 41–42).'},
+ {q:'ليس من الأركان الأربعة لمشروع هارفارد:',o:['فصل الأشخاص عن المشكلة','التركيز على المصالح لا المواقف','التمسك الصارم بالمواقف الجامدة','الاحتكام إلى معايير موضوعية'],a:2,e:'الأركان الأربعة: فصل الأشخاص عن المشكلة، التركيز على المصالح، ابتكار خيارات متعددة للمنفعة المتبادلة، والاحتكام للمعايير الموضوعية.'},
+ {q:'يتصل مفهوم «توسيع الكعكة» في التفاوض بـ:',o:['ابتكار خيارات متعددة للمنفعة المتبادلة','خفض السعر النقدي','الاستنزاف التدريجي','التدمير الذاتي'],a:0,e:'العصف الذهني وطرح حلول خلاقة قبل محاولة الحسم يوسّع حجم الكعكة التفاوضية ويسهّل الوصول لحلول ذات منفعة مشتركة.'},
+ {q:'تُنسب نظرية الحاجة في التفاوض إلى أعمال:',o:['نيرنبرغ','فيشر','يوري','رايفا'],a:0,e:'الحاجات وطرق إشباعها هما المحرك الأساسي والمشترك لكل عملية تفاوضية — مدرسة سلوكية ونفسية (جامعة تيارت، ص 42–43).'},
+ {q:'تأسست نظرية المباريات ونظرية الألعاب عام 1944 على يد:',o:['فيشر ويوري','جون فون نيومان وأوسكار مورجنسترن','هي وماكارثي','دارمون وشوبك'],a:1,e:'في كتابهما «نظرية المباريات والسلوك الاقتصادي»، وطوّرها مارتن شوبك وتوماس شيلينغ في اتخاذ القرار والتفاوض (جامعة تيارت، ص 43–46).'},
+ {q:'في «المباريات التنافسية (المضفرية)» مجموع أرباح الأطراف:',o:['موجب دائماً','سالب دائماً','يساوي صفراً','غير معروف'],a:2,e:'مجموع أرباح طرف يساوي مجموع خسائر الطرف الآخر؛ يطبَّق مبدأ «الحل الأمثل للفائدة القصوى / الخسارة المقننة».'},
+ {q:'تعمل نظرية الحاجة على ثلاثة مستويات تفاوضية، هي:',o:['الأسواق، البنوك، الجمارك','الأفراد، المنظمات، الدول','العرض، الطلب، السعر','المحلي، الجهوي، المحلي'],a:1,e:'التفاوض بين الأفراد، بين المنظمات والمؤسسات الكبرى، والتفاوض الدولي بين الدول (جامعة تيارت، ص 42–43).'},
+ {q:'من عناصر نظرية المباريات الخمسة:',o:['الشعارات والدعاية','الجداول الزمنية فقط','عدد الوفود المشاركة','الخيارات المتاحة، الأهداف، المنفعة، المعايير، المعلومات'],a:3,e:'تبدّر الاختيار الاستراتيجي بين اللاعبين في المواقف المتبادلة التي يملك فيها كل طرف سيطرة جزئية على النتيجة النهائية (جامعة تيارت، ص 43–46).'}
+]},
+{id:'q3',n:'٣',title:'المحور الثالث: مراحل وخطوات التفاوض التجاري الدولي',desc:'ما قبل التفاوض، التفاوض الفعلي، ما بعد التفاوض، ونموذج المراحل الخمس (Hay & McCarthy).',qs:[
+ {q:'تشير أدبيات التفاوض إلى أن مرحلة «ما قبل التفاوض» تُدرك رجحان زاوية تؤدي نحو:',o:['20% من النجاح','50% من النجاح','95% من النجاح','80% من نجاح المفاوضات'],a:3,e:'الإعداد والتخطيط والتحضير الاستراتيجي يشكل 80% مقابل 20% للتكتيكات (جامعة تيارت، شكل مقر 3، ص 38).'},
+ {q:'تُصنّف الأولويات التفاوضية إلى ثلاث مستويات:',o:['قوية / متوسطة / ضعيفة','فردية / جماعية / وطنية','قصيرة / متوسطة / طويلة','مثالية / واقعية / دنيا'],a:3,e:'المثالية (سقف التوقعات)، الواقعية (ممكنة التحقيق)، الدنيا (الحد الأدنى الذي لا يمكن التنازل دونها) (جامعة تيارت).'},
+ {q:'«الأولويات الدنيا» هي:',o:['سقف التوقعات المثلى','الأهداف الإعلامية','ما يمكن تحقيقه بسهولة','الحد الأدنى الذي لا يمكن التنازل دونها'],a:3,e:'تشترط صياغة الأهداف بثمانية معايير: الموضوعية، الوضوح، المرونة، الواقعية، القابلية للقياس، السرعة، القابلية للمراجعة، والاقتناع بها.'},
+ {q:'ليس من المعايير الثمانية لصياغة الأهداف التفاوضية:',o:['الموضوعية','الغموض','المرونة','القابلية للقياس'],a:1,e:'الغموض نقيض الوضوح المطلوب؛ الأهداف يجب أن تكون موضوعية وواضحة ومرنة وواقعية وقابلة للقياس وسريعة وقابلة للمراجعة ومقبولة.'},
+ {q:'التفاوض الفردي (مقارنةً بالفريق) يتميز بـ:',o:['انخفاض الالتزام دائماً','غياب الكفاءة','سرعة الإنجاز ووضوح المسؤولية واستغلال نقاط الضعف','زيادة عدد الخبرات التخصصية'],a:2,e:'مقابل ما يتميز به الفريق: تكامل الخبرات الاقتصادية والقانونية والفنية، وزيادة المرونة، ورفع درجة الالتزام بحجة استشارة الزملاء (جامعة الجزائر 3).'},
+ {q:'من خطوات ما بعد التفاوض:',o:['إعداد المسودة المبدئية للقرار النهائي','تحرير وتوقيع الاتفاق وتوثيقه قانونياً','تنفيذ بنود الاتفاق وتقييم العملية','كل ما سبق'],a:3,e:'تتميز العملية بخطوات ثلاث إلى أربع: المسودة المبدئية، التحرير والتوقيع، التنفيذ، ثم التقييم والتوثيق للاستفادة مستقبلاً (جامعة الجزائر 3).'},
+ {q:'المرحلة الأولى في نموذج هي وماكارثي (Hay & McCarthy):',o:['الحوار والمناقشة (Discuss)','التخطيط (Plan)','العروض (Propose)','المقايضة (Trade)'],a:1,e:'التخطيط يتحمل الحجم الأكبر والشامل؛ يحلل المراحل الأربعة السابقة: الأهداف والمعلومات والبدائل من البداية حتى النهاية (جامعة غليزان، ص 33–34).'},
+ {q:'في مرحلة «الممارسة التجارية والمقايضة (Trade)» يتم:',o:['تثبيت العرض النهائي وتأكيده','بناء مناخ الفهم الأولي','تحضير الأخير','تطبيق تقنيات الإقناع والمقايضات المشروطة (تنازل مقابل مكسب)'],a:3,e:'توظيف الإقناع والمقايضات المشروطة والرد على الاستفسارات والاتفاق على الأسعار والتكاليف والشروط (جامعة غليزان، ص 33–34).'},
+ {q:'المرحلة الخامسة والأخيرة في النموذج الخماسي:',o:['الموافقة والتأكيد (Agree & Confirm)','التخطيط (Plan)','الممارسة التجارية (Trade)','الحوار (Discuss)'],a:0,e:'تثبيت العرض النهائي المتفق عليه وتأكيده رسمياً بتوقيع وتوثيق لإتمام الصفقة التجارية.'},
+ {q:'تُلخص قراءة لغة الجسد في الجلسات التفاوضية إلى نحو:',o:['20% من المخاطبة','90% من المخاطبة','40% من المخاطبة','60% من المخاطبة الإنسانية'],a:3,e:'قراءة لغة الجسد جزء من إدارة الحوار وتوظيف الأسئلة وأدوات الإقناع في مرحلة التفاوض الفعلي (جامعة الجزائر 3).'}
+]},
+{id:'q4',n:'٤',title:'المحور الرابع: محددات العملية التفاوضية',desc:'القوة ومصادرها، القدرة، الرغبة، المصلحة، البيئة والمناخ، والمعلومات ونموذج STROB.',qs:[
+ {q:'القوة التفاوضية تعرف بأنها:',o:['الحجم المالي للمؤسسة فقط','القدرة على التأثير في الطرف الآخر وتوجيه سلوكه لقبول المقترحات أو تقديم التنازلات','التمثيل القانوني الرسمي','شهرة العلامة التجارية'],a:1,e:'والعبرة ليست بمجرد امتلاك القوة موضوعياً بل بإدراكها واستخدامها الفعال تكتيكياً (جامعة تيارت، ص 69–72).'},
+ {q:'من مصادر القوة التفاوضية الثمانية:',o:['درجة الحاجة','تعدد الخيارات والبدائل (BATNA)','عنصر الوقت','كل ما سبق'],a:3,e:'المصادر الثمانية: درجة الحاجة، BATNA، عنصر الوقت، العلاقات والسمعة، حجم الاستثمار المسبق، المصداقية، المعرفة والمعلومات، المهارات الشخصية (جامعة تيارت).'},
+ {q:'BATNA اختصار يشير إلى:',o:['العلاقات والسمعة','الحد الأدنى من التنازلات','البديل الأفضل خارج التفاوض — امتلاكه يمنح المفاوض قوة وصلابة','الجمود المنقضي'],a:2,e:'تعدد الخيارات والبدائل خارج الطاولة يمنح المفاوض قوة تفاوضية حقيقية (جامعة تيارت، ص 69–72).'},
+ {q:'تُحقَّق القدرة التفاوضية عبر ركائز منها:',o:['الاختيار الدقيق لأعضاء الفريق','تحقيق الانسجام والتوافق الداخلي','التدريب والتحفيز العالي','كل ما سبق'],a:3,e:'خمس ركائز: الاختيار، الانسجام الداخلي، التدريب والتحفيز، المتابعة الحثيثة والعزل عن المؤثرات الضارة، وتوفير التسهيلات (جامعة غليزان، ص 45–46).'},
+ {q:'الرغبة التفاوضية تعني:',o:['التهديد الظرفي','التلاعب النفسي','قوة الإملاء المالي','الدافع النفسي والإرادي والإرادة المشتركة والاقتناع بأن التفاوض هو الوسيلة الوحيدة أو الأفضل'],a:3,e:'مع التهيئة النفسية للمفاوض والحفاظ على اتزانه العاطفي طوال الجلسات (جامعة الجزائر 3، ص 22–24).'},
+ {q:'عند اختلال توازن المصلحة (منهج الصراع)، تُستخدم استراتيجيات موجهة منها:',o:['التكامل الأمامي','تطوير التعاون الحالي','الإنهاك والتسلط والحصر والتدمير','تعـميق العلاقة القائمة'],a:2,e:'الإنهاك (استنزاف القوى)، التسلط (التفتت الداخلي)، إحكام السيطرة، الحصر (الغزو المنظم)، والتدمير الذاتي (جامعة الجزائر 3، ص 72–77).'},
+ {q:'يتأثر المناخ التفاوضي المادي بشكل مباشر باختيار:',o:['عدد المبلغين','لون اللافتات','مكان التفاوض (أرض المفاوض / منطقة محايدة)','توقيت العطلات فقط'],a:2,e:'التفاوض على أرض المفاوض يمنحه ميزة «اللعب على أرضه»؛ لذا يُفضَّل اختيار منطقة محايدة كقاعات المؤتمرات والفنادق الدولية (جامعة الجزائر 3، ص 25–30).'},
+ {q:'نموذج STROB يُعد أداة أكاديمية لـ:',o:['التوقيع الإلكتروني للعقود','الحصول على المعلومات الكافية حول الطرف الآخر','الدعاية الإعلامية','التحكيم التجاري'],a:1,e:'مفهومه: الوصول للنهايات المفتوحة لتصيد المعلومات الكافية حول الطرف الآخر (جامعة غليزان، ص 43–45).'},
+ {q:'في نموذج STROB، البعد الذي يتعلق باستكشاف البدائل المتاحة لدى الطرفين لتوسيع منطقة الاتفاق هو:',o:['المجال (Scope)','الخيارات (Options)','الشروط (Terms)','العقبات (Barriers)'],a:1,e:'الأبعاد الخمسة: المجال، الشروط، الأخطار، الخيارات، العقبات.'},
+ {q:'المعادلة الذهبية للأداء التفاوضي المتمايز:',o:['القوة + المال','الشهرة ÷ الوقت','المعلومات − الخبرة','القدرة التفاوضية × الرغبة التفاوضية في إطار القوة والمصلحة والمعلومات والبيئة'],a:3,e:'الأداء التفاوضي المتمايز = قدرات ومهارات متميزة × روح دافعية معنوية وعالية، ضمن إطار القوة والمصلحة والمعلومات والبيئة (جامعة غليزان ص 42–46 · الجزائر 3 ص 22–25).'}
+]},
+{id:'q5',n:'★',title:'الاختبار الشامل — كل المحاور',desc:'أسئلة مختارة من المحاور الأربعة لقياس جاهزيتك للامتحان. هل أنت مستعد؟',qs:[
+ {q:'يشترط في المفاوضات التجارية الدولية أن تمثل الأطراف:',o:['نفس الجنسية حصراً','نفس الحي التجاري','عائلة واحدة','دول أو أنظمة قانونية واقتصادية مختلفة'],a:3,e:'شركات متعددة الجنسيات، مؤسسات تصدير واستيراد، دول، أو هيئات مالية دولية (جامعة غليزان، ص 13).'},
+ {q:'«التكتيكات (Tactics)» في سلم التفاوض التجاري تعني:',o:['الإطار العام الكلي والمدى البعيد','خططاً إرشادية حاكمة للجلسات','مبادرات ظرفية وتحركات دقيقة قصيرة الأجل مرتبطة باللحظة','سياسة أمنية للفريق'],a:2,e:'الاستراتيجية للمدى البعيد، السياسة والتقنيات للجلسات، والتكتيكات للحظات الفارغة والفرص العارضة (جامعة تيارت، ص 8).'},
+ {q:'«دفعات التوريد ومستويات الجودة المقبولة» يتصل بموضوع التفاوض المتعلق بـ:',o:['المرجعية القانونية','الكمية المطلوبة ونوعيتها','شروط الدفع','مهلة التسليم'],a:1,e:'ضبط حجم الطلبيات وجدولة دفعات التوريد ومستويات الجودة المقبولة عليها (جامعة غليزان، ص 22–23).'},
+ {q:'«تحديد القانون الواجب التطبيق ووجه التقاضي أو التحكيمية» يتعلق بـ:',o:['نوع السلعة','الكمية المطلوبة','تحديد المرجعية القانونية لفض المنازعات','جدولة التسليم'],a:2,e:'الاتفاق المسبق على القانون الواجب التطبيق ووجه التقاضي أو التحكيم عند نشوب نزاع أو تنفيذ العقد (جامعة غليزان، ص 22–23).'},
+ {q:'من الخصائص التسع للتفاوض التجاري الفعال:',o:['العشوائية والارتجال','الغموض والركاكة','الانعزال','الالتزام، المرونة، الكفاءة، التكافؤ، الاتساق، التوازن والمرونة'],a:3,e:'الخصائص التسع: الالتزام، وجود المستفيد، التشريع، توازن المصلحة، التكافؤ، العدالة، الكفاءة، الاتساق، والتوازن والمرونة.'},
+ {q:'الوساطة الإلزامية تُفرض:',o:['بالجبر المباشر','من الإعلام','ممنوعة قانوناً','بالقانون أو العقد قبل اللجوء للقضاء'],a:3,e:'تقسم الوساطة إلى اختيارية (بإرادة الطرفين) وإلزامية يفرضها القانون أو العقد قبل اللجوء للقضاء (جامعة الجزائر 3، ص 10، 96).'},
+ {q:'ليس من أنماط الحوار السلبية التي يجب الحذر منها:',o:['الحوار المزدوج','حوار التفاوض','الحوار الإيغلاقي','حوار العدوان السلبي الصامت'],a:1,e:'حوار التفاوض من الأنماط الإيجابية؛ أما السلبية فتشمل: العدم، التعجيزي، المناورة والرفر، المزدوج، الطريق المسدود، السلطوي، السطحي، الإيغلاقي، العدوان السلبي الصامت (جامعة الجزائر 3، ص 49–53).'},
+ {q:'ينطبق تفاوض مشروع هارفارد (المتكاملي) في صياغة:',o:['صفقة عابرة واحدة','مزاد علني','مزايدة سلبية','الشراكات الاستراتيجية طويلة الأمد والصفقات متعددة الشروط'],a:3,e:'الشراكات الاستراتيجية طويلة الأمد والصفقات متعددة الشروط المالية والفنية — حيث تتحقق فلسفة ربح/ربح.'},
+ {q:'قاعدة الـ 80/20 في المفاوضات التجارية الدولية تعني:',o:['80% للتكتيكات و20% للإعداد','80% للحظ وأن 20% للمهارة','80% للتفاوض اللفظي و20% لغير اللفظي','80% من النجاح من الإعداد مقابل 20% للتكتيكات'],a:3,e:'مرحلة ما قبل التفاوض (الإعداد والتخطيط والتحضير الاستراتيجي) هي مركز النجاح (جامعة تيارت، ص 38).'},
+ {q:'المعادلة الذهبية للأداء التفاوضي المتمايز تجمع بين:',o:['القدرة التفاوضية والرغبة التفاوضية','المال والسلطة','الشهر والتاريخ','الحظ والتوقع'],a:0,e:'الأداء المتمايز = القدرة × الرغبة، في إطار القوة التفاوضية والمصلحة المشتركة والمعلومات والبيئة والمناخ (جامعة غليزان، ص 42–46).'}
+]}
+];
+
+/* ============================================================
+   بطاقات الحفظ
+============================================================ */
+const CATS={c:'مفاهيم أساسية',t:'النظريات',p:'المراحل',d:'المحددات'};
+const DECK=[
+{id:'c01',cat:'c',f:'التفاوض',b:'عملية حوار ومناقشة وتفاعل ديناميكي بين طرفين أو أكثر، مع غرض نزاعي، بهدف تقريب المواقف والوصول إلى اتفاق مقبول يحقق المصلحة المشتركة ويقلل الخسائر.'},
+{id:'c02',cat:'c',f:'المفاوضات التجارية الدولية',b:'عملية اتصالية ذات مضمون اقتصادي وتجاري وقانوني بين طرفين يمثلان دولاً أو أنظمة مختلفة؛ تبادل مقترحات ومساومات لفض نزاع أو إبرام عقود تجارية دولية.'},
+{id:'c03',cat:'c',f:'المساومة (Bargaining)',b:'عملية تنافسية نفعية بحتة لتخفيض الثمن؛ سلوك صفري (ربح/خسارة)، زمنها قصير، علاقاتها عابرة، وقوتها مركزة في يد طرف واحد.'},
+{id:'c04',cat:'c',f:'الوساطة (Mediation)',b:'دخول طرف ثالث محايد لمساعدة أطراف النزاع على تذليل العقبات وتقريب وجهات النظر دون فرض حلول إلزامية — اختيارية أو إلزامية.'},
+{id:'c05',cat:'c',f:'التحكيم التجاري الدولي (Arbitration)',b:'وسيلة قانونية لفض النزاع عبر محكّم أو هيئة تحكيمية (ICC) يختارها الأطراف لإصدار حكم ملزم وجاسم — أسرع وأقل تكلفة من القضاء العادي.'},
+{id:'c06',cat:'c',f:'الحوار (Dialogue)',b:'من اليونانية: Dia = عبر، Logos = الكلمة/المنطق. أداة الجوهرية التي يرتكز عليها التفاوض: كل تفاوض حوار، وليس كل حوار تفاوضاً.'},
+{id:'c07',cat:'c',f:'الاستراتيجية',b:'الإطار العام الكلي والمدى البعيد الذي يرسّم التوجهات الكبرى والخيارات والأهداف النهائية المرغوب تحقيقها.'},
+{id:'c08',cat:'c',f:'التكتيكات (Tactics)',b:'مبادرات ظرفية وتحركات دقيقة قصيرة الأجل مرتبطة باللحظة، لاستغلال الفرص العارضة أو تجاوز العقبات المفاجئة.'},
+{id:'c09',cat:'c',f:'المبادئ الخمسة للتفاوض',b:'القدرة الذاتية · المنفعة · الالتزام · العلاقات المتداولة · أخلاقيات التفاوض.'},
+{id:'t01',cat:'t',f:'النظرية الكلاسيكية للتفاوض',b:'التفاوض على المواقف (Positional Bargaining): موقف مبدئي متمسك به + تنازلات تدريجية بطيئة + ضغط، وينتهي غالباً باقتسام الفرق.'},
+{id:'t02',cat:'t',f:'التفاوض التوزيعي (Zero-Sum)',b:'النمط التطبيقي للمواقف: مساومة مقدار ثابت من القيمة؛ مكسب طرف = خسارة الطرف الآخر. مثاله: التفاوض على السعر النقدي فقط في صفقة عابرة.'},
+{id:'t03',cat:'t',f:'مشروع هارفارد (النظرية الممنهجة)',b:'أسسه فيشر ويوري ورايفا؛ تفاوض ممنهج على المصالح، يحقق اتفاقاً حكيماً وعادلاً دون استنزاف القوى ودون إفساد العلاقة المستقبلية.'},
+{id:'t04',cat:'t',f:'الأركان الأربعة لمشروع هارفارد',b:'١ فصل الأشخاص عن المشكلة · ٢ التركيز على المصالح لا المواقف · ٣ ابتكار خيارات متعددة للمنفعة المتبادلة · ٤ الاحتكام إلى معايير موضوعية.'},
+{id:'t05',cat:'t',f:'نظرية الحاجة في التفاوض',b:'نيرنبرغ: الحاجات وطرق إشباعها هما المحرك الأساسي لكل تفاوض. تعمل على 3 مستويات: الأفراد، المنظمات، الدول.'},
+{id:'t06',cat:'t',f:'نظرية المباريات (Game Theory)',b:'نيومان ومورجنسترن 1944 + شوبك وشيلينغ. 5 عناصر: الخيارات، الأهداف، المنفعة، المعايير، المعلومات. مباريات صفرية (تنافسية) وغير صفرية (تعاونية).'},
+{id:'p01',cat:'p',f:'قاعدة 80/20 الذهبية',b:'80% من نجاح المفاوضات تعتمد على مرحلة ما قبل التفاوض (الإعداد والتخطيط والتحضير الاستراتيجي)، مقابل 20% فقط للتكتيكات.'},
+{id:'p02',cat:'p',f:'الأولويات التفاوضية الثلاث',b:'مثالية (سقف التوقعات) · واقعية (ممكنة التحقيق) · دنيا (الحد الأدنى الذي لا يمكن التنازل دونها).'},
+{id:'p03',cat:'p',f:'المعايير الثمانية لصياغة الأهداف',b:'الموضوعية · الوضوح · المرونة · الواقعية · القابلية للقياس · السرعة · القابلية للمراجعة · الاقتناع بها.'},
+{id:'p04',cat:'p',f:'نموذج هي وماكارثي الخماسي',b:'التخطيط Plan → الحوار والمناقشة Discuss → الاقتراحات والعروض Propose → الممارسة التجارية والمقايضة Trade → الموافقة والتأكيد Agree & Confirm.'},
+{id:'p05',cat:'p',f:'خطوات ما بعد التفاوض',b:'إعداد المسودة المبدئية → تحرير وتوقيع الاتفاق وتوثيقه قانونياً → تنفيذ البنود → تقييم وتوثيق العملية للمفاوضات المستقبلية.'},
+{id:'p06',cat:'p',f:'معالجة مأزق التفاوض (الطريق المسدود)',b:'تغيير آلية التفاوض · طلب استراحة · تأجيل النقطة الخلافية · الاستعانة بطرف ثالث (مستشار، وسيط، محكّم).'},
+{id:'d01',cat:'d',f:'القوة التفاوضية (Power)',b:'القدرة على التأثير في الطرف الآخر وتوجيه سلوكه؛ مصادرها 8: درجة الحاجة، BATNA، عنصر الوقت، العلاقات والسمعة، حجم الاستثمار، المصداقية، المعرفة، المهارات.'},
+{id:'d02',cat:'d',f:'BATNA',b:'أفضل بديل خارج التفاوض؛ امتلاك بدائل خارج الطاولة يمنح المفاوض قوة وصلابة ويحميه من قبول صفقة رديئة.'},
+{id:'d03',cat:'d',f:'القدرة التفاوضية (Capacity)',b:'البراعة والمهارة والكفاءة العلمية لأعضاء الفريق؛ 5 ركائز: الاختيار الدقيق، الانسجام الداخلي، التدريب والتحفيز، المتابعة والعزل عن المؤثرات الضارة، التسهيلات المادية.'},
+{id:'d04',cat:'d',f:'الرغبة التفاوضية (Willingness)',b:'الدافع النفسي والإرادة المشتركة والاقتناع بأن التفاوض هو الوسيلة الوحيدة أو الأفضل لحل النزاع — مع الاتزان العاطفي طوال الجلسات.'},
+{id:'d05',cat:'d',f:'المصلحة التفاوضية (Interest)',b:'المحرك الجوهري: «لا تفاوض بدون مصلحة، وانهيار المصلحة يعني انهيار التفاوض». توازنها = تعاون، اختلالها = صراع (إنهاك، تسلط، حصر، تدمير).'},
+{id:'d06',cat:'d',f:'نموذج STROB',b:'المجال Scope · الشروط Terms · الأخطار Risks · الخيارات Options · العقبات Barriers — أداة أكاديمية لجمع المعلومات الكافية حول الطرف الآخر.'},
+{id:'d07',cat:'d',f:'المعادلة الذهبية للأداء التفاوضي',b:'الأداء التفاوضي المتمايز = القدرة التفاوضية × الرغبة التفاوضية، في إطار القوة والمصلحة المشتركة والمعلومات والبيئة والمناخ.'}
+];
+
+/* ============================================================
+   التخزين
+============================================================ */
+const LS={s:'qcms_scores_v1',k:'qcms_known_v1',c:'qcms_custom_v1',t:'qcms_theme_v1'};
+const load=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}};
+const save=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
+let SCORES=load(LS.s,{}), KNOWN=new Set(load(LS.k,[])), CUSTOM=load(LS.c,[]);
+const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
+const toast=t=>{const el=$('#toast');$('#toastTxt').textContent=t;el.classList.add('show');clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove('show'),2800)};
+
+/* ============================================================
+   القائمة، السمة، تقدم التمرير، الظهور
+============================================================ */
+const themeBtn=$('#themeBtn');
+function setTheme(t){document.documentElement.dataset.theme=t;save(LS.t,t);themeBtn.innerHTML=`<svg class="ic"><use href="#i-${t==='dark'?'sun':'moon'}"/></svg>`}
+setTheme(load(LS.t,'light'));
+themeBtn.onclick=()=>setTheme(document.documentElement.dataset.theme==='dark'?'light':'dark');
+ $('#burger').onclick=()=>$('#navLinks').classList.toggle('open');
+ $$('#navLinks a').forEach(a=>a.onclick=()=>$('#navLinks').classList.remove('open'));
+addEventListener('scroll',()=>{const h=document.documentElement;$('#topbar').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'},{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+ $$('.rv').forEach(el=>io.observe(el));
+const spy=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){$$('#navLinks a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}}),{rootMargin:'-30% 0px -60% 0px'});
+['ax1','ax2','ax3','ax4','refs','quiz','cards'].forEach(id=>{const el=document.getElementById(id);if(el)spy.observe(el)});
+
+/* ============================================================
+   لوحة القياس QCMS
+============================================================ */
+function quizQuestions(id){const q=QUIZZES.find(x=>x.id===id);return[...q.qs,...CUSTOM.filter(c=>c.target===id).map(c=>({q:c.q,o:c.o,a:c.a,e:'سؤال مضاف من مولّد الأسئلة (QCMS).'}))]}
+function renderDashboard(){
+  const tiles=$('#qcmsTiles');
+  let attempts=0,bestSum=0,bestN=0;
+  QUIZZES.forEach(q=>{const s=SCORES[q.id];if(s){attempts+=s.attempts;bestSum+=s.best;bestN++}});
+  const avgBest=bestN?Math.round(bestSum/bestN):0;
+  const knownPct=Math.round(KNOWN.size/DECK.length*100);
+  tiles.innerHTML=`
+   <div class="q-tile"><div class="qic"><svg class="ic"><use href="#i-target"/></svg></div><b>${attempts}</b><span>محاولة اختبار</span></div>
+   <div class="q-tile"><div class="qic"><svg class="ic"><use href="#i-chart"/></svg></div><b>${avgBest}%</b><span>متوسط أفضل النتائج</span></div>
+   <div class="q-tile"><div class="qic"><svg class="ic"><use href="#i-spark"/></svg></div><b>${CUSTOM.length}</b><span>سؤال مضاف منك</span></div>
+   <div class="q-tile"><div class="qic"><svg class="ic"><use href="#i-cards"/></svg></div><b>${KNOWN.size}/${DECK.length}</b><span>بطاقة متقنة (${knownPct}%)</span></div>`;
+  $('#quizGrid').innerHTML=QUIZZES.map(q=>{
+    const n=quizQuestions(q.id).length,s=SCORES[q.id];
+    return `<div class="quiz-card">
+      <div class="qc-top"><span class="qc-ic">${q.n}</span><div><h4>${q.title}</h4>
+      <div class="qc-meta"><span><svg class="ic"><use href="#i-doc"/></svg> ${n} أسئلة</span><span><svg class="ic"><use href="#i-clock"/></svg> ${n*40} ثانية</span><span><svg class="ic"><use href="#i-refresh"/></svg> ${s?s.attempts:0} محاولات</span></div></div></div>
+      <p>${q.desc}</p>
+      <div class="qc-foot"><span class="best-tag ${s&&s.best?'':'zero'}">${s&&s.best?'أفضل نتيجة: '+s.best+'%':'لم تُجرَّب بعد'}</span>
+      <button class="btn-start" onclick="startQuiz('${q.id}')">ابدأ الاختبار</button></div></div>`}).join('');
+  // مولّد الأسئلة
+  const sel=$('#bTarget');
+  if(!sel.options.length)sel.innerHTML=QUIZZES.map(q=>`<option value="${q.id}">${q.n} — ${q.title}</option>`).join('');
+  $('#customList').innerHTML=CUSTOM.length?CUSTOM.map((c,i)=>`<div class="custom-item"><b>${QUIZZES.find(q=>q.id===c.target).n}</b><span>${c.q}</span><button class="del" onclick="delCustom(${i})" aria-label="حذف"><svg class="ic"><use href="#i-trash"/></svg></button></div>`).join(''):'<p style="font-size:.8rem;color:#7f8898">لا توجد أسئلة مضافة بعد.</p>';
+  $('#stQ').textContent=QUIZZES.reduce((a,q)=>a+quizQuestions(q.id).length,0);
+  $('#stC').textContent=DECK.length;
+}
+function delCustom(i){CUSTOM.splice(i,1);save(LS.c,CUSTOM);renderDashboard();toast('تم حذف السؤال')}
+ $('#bAdd').onclick=()=>{
+  const t=$('#bTarget').value,q=$('#bQ').value.trim(),os=[1,2,3,4].map(i=>$('#bO'+i).value.trim()),a=+document.querySelector('input[name=bc]:checked').value;
+  if(!q||os.some(o=>!o)){toast('يرجى تعبئة السؤال وجميع الخيارات');return}
+  CUSTOM.push({target:t,q,o:os,a});save(LS.c,CUSTOM);
+  ['bQ','bO1','bO2','bO3','bO4'].forEach(id=>$('#'+id).value='');
+  renderDashboard();toast('أُضيف سؤالك إلى الاختبار بنجاح ✓');
+};
+ $('#resetScores').onclick=()=>{SCORES={};save(LS.s,SCORES);renderDashboard();toast('تم تصفير نتائج الاختبارات')};
+ $('#resetCards').onclick=()=>{KNOWN.clear();save(LS.k,[]);renderDeck();renderDashboard();toast('تم تصفير إتقان البطاقات')};
+ $('#wipeAll').onclick=()=>{if(confirm('سيتم مسح كل النتائج والأسئلة المضافة وإتقان البطاقات. متابعة؟')){[LS.s,LS.k,LS.c].forEach(k=>localStorage.removeItem(k));SCORES={};KNOWN.clear();CUSTOM=[];renderDeck();renderDashboard();toast('تم مسح جميع بيانات المنصة')}};
+
+/* ============================================================
+   محرك الاختبار
+============================================================ */
+let Q={id:null,qs:[],i:0,ans:[],ok:0,t:null,left:0};
+window.startQuiz=id=>{
+  Q={id,qs:quizQuestions(id),i:0,ans:Array(quizQuestions(id).length).fill(null),ok:0};
+  Q.left=Q.qs.length*40;
+  $('#mTitle').textContent=QUIZZES.find(x=>x.id===id).title;
+  $('#mSub').textContent='اختر الإجابة الصحيحة — التصحيح فوري مع الشرح';
+  $('#overlay').classList.add('show');document.body.style.overflow='hidden';
+  $('#mFoot').style.display='flex';$('#mNext').style.display='none';
+  clearInterval(Q.t);
+  Q.t=setInterval(()=>{Q.left--;updTimer();if(Q.left<=0)finish()},1000);
+  updTimer();renderQ();
+};
+function updTimer(){const m=String(Math.floor(Q.left/60)).padStart(2,'0'),s=String(Q.left%60).padStart(2,'0');$('#mTime').textContent=m+':'+s;$('#mTimer').classList.toggle('danger',Q.left<=30)}
+function renderQ(){
+  const q=Q.qs[Q.i];
+  $('#mBody').innerHTML=`<div class="qq">${q.q}</div><div class="opts">${q.o.map((o,i)=>`<button class="opt" onclick="choose(${i})"><span class="okey">${['أ','ب','ج','د'][i]}</span>${o}</button>`).join('')}</div>`;
+  $('#mCount').textContent=`السؤال ${Q.i+1} من ${Q.qs.length}`;
+  $('#mBar').style.width=(Q.i/Q.qs.length*100)+'%';
+  $('#mNext').style.display='none';
+}
+window.choose=i=>{
+  const q=Q.qs[Q.i];if(Q.ans[Q.i]!==null)return;
+  Q.ans[Q.i]=i;const btns=$$('#mBody .opt');
+  btns.forEach((b,j)=>{b.disabled=true;if(j===q.a)b.classList.add('ok');else if(j===i)b.classList.add('bad')});
+  if(i===q.a)Q.ok++;
+  const exp=document.createElement('div');exp.className='explain';
+  exp.innerHTML=`<b>${i===q.a?'إجابة صحيحة ✓':'الجواب الصحيح: '+['أ','ب','ج','د'][q.a]}</b> — ${q.e}`;
+  $('#mBody').appendChild(exp);
+  $('#mNext').style.display='inline-flex';
+  $('#mNext').innerHTML=Q.i===Q.qs.length-1?'عرض النتيجة <svg class="ic"><use href="#i-flag"/></svg>':'السؤال التالي <svg class="ic"><use href="#i-chl"/></svg>';
+};
+ $('#mNext').onclick=()=>{if(Q.i<Q.qs.length-1){Q.i++;renderQ()}else finish()};
+function finish(){
+  clearInterval(Q.t);
+  const pct=Math.round(Q.ok/Q.qs.length*100),s=SCORES[Q.id]||{best:0,attempts:0};
+  s.attempts++;s.best=Math.max(s.best,pct);s.last=pct;SCORES[Q.id]=s;save(LS.s,SCORES);
+  const C=2*Math.PI*70;
+  const msg=pct>=90?'أداء استثنائي — جاهز للامتحان بإذن الله!':pct>=70?'مستوى جيد جداً — راجع أخطاءك لتثبيت المفاهيم':pct>=50?'أساس مقبول — أعد قراءة المحاور وضعّ البطاقات':'تحتاج مراجعة شاملة — ابدأ بالمحور الأول ثم عد للتجربة';
+  $('#mBar').style.width='100%';$('#mFoot').style.display='none';
+  $('#mBody').innerHTML=`<div class="res">
+    <div class="ring-wrap"><svg width="170" height="170"><circle class="ring-bg" cx="85" cy="85" r="70"/><circle class="ring-fg" cx="85" cy="85" r="70" stroke-dasharray="${C}" stroke-dashoffset="${C}" id="rfg"/></svg><div class="ring-val">${pct}%</div></div>
+    <h3>${Q.ok} من ${Q.qs.length} إجابات صحيحة</h3><p class="rmsg">${msg}</p>
+    <div class="rstats"><span class="chip-stat">أفضل نتيجة: <b>${s.best}%</b></span><span class="chip-stat">المحاولات: <b>${s.attempts}</b></span></div>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:10px">
+      <button class="btn btn-gold" onclick="startQuiz('${Q.id}')"><svg class="ic"><use href="#i-refresh"/></svg> إعادة الاختبار</button>
+      <button class="btn btn-navy" onclick="closeModal()">إغلاق</button>
+    </div>
+    <div class="review">${Q.qs.map((q,i)=>{const mine=Q.ans[i],good=mine===q.a;
+      return `<div class="rev-item ${good?'was-ok':'was-bad'}"><div class="rq">${i+1}. ${q.q}</div>
+      <div class="ra ${good?'ok':'bad'}">إجابتك: ${mine===null?'— لم تُجب (انتهى الوقت)':q.o[mine]}</div>
+      ${good?'':`<div class="ra ok">الصحيح: ${q.o[q.a]}</div>`}
+      <div class="re">${q.e}</div></div>`}).join('')}</div></div>`;
+  setTimeout(()=>{const f=$('#rfg');if(f)f.style.strokeDashoffset=C*(1-pct/100)},60);
+  renderDashboard();toast('تم حفظ نتيجتك في لوحة القياس');
+}
+window.closeModal=()=>{$('#overlay').classList.remove('show');document.body.style.overflow='';clearInterval(Q.t)};
+ $('#mClose').onclick=()=>{if(confirm('هل تريد إنهاء الاختبار الحالي؟'))closeModal()};
+ $('#overlay').addEventListener('click',e=>{if(e.target.id==='overlay'&&confirm('هل تريد إنهاء الاختبار الحالي؟'))closeModal()});
+
+/* ============================================================
+   البطاقات التعليمية
+============================================================ */
+let FC={cat:'all',deck:[...DECK],i:0};
+function renderChips(){
+  const counts={all:DECK.length};Object.keys(CATS).forEach(c=>counts[c]=DECK.filter(d=>d.cat===c).length);
+  $('#fcChips').innerHTML=[['all','الكل'],...Object.entries(CATS)].map(([c,l])=>`<button class="fc-chip ${FC.cat===c?'on':''}" onclick="setCat('${c}')">${l} (${counts[c]})</button>`).join('');
+}
+window.setCat=c=>{FC.cat=c;FC.deck=c==='all'?[...DECK]:DECK.filter(d=>d.cat===c);FC.i=0;$('#fcCard').classList.remove('flipped');renderChips();renderDeck()};
+function renderDeck(){
+  if(!FC.deck.length)return;
+  const d=FC.deck[FC.i%FC.deck.length];
+  $('#fcCat').textContent=CATS[d.cat];
+  $('#fcFront').textContent=d.f;$('#fcBack').textContent=d.b;
+  $('#fcBar').style.width=((FC.i+1)/FC.deck.length*100)+'%';
+  $('#fcTxt').textContent=`بطاقة ${FC.i+1} من ${FC.deck.length} · أتقنت ${KNOWN.size} من ${DECK.length} بطاقة`;
+}
+const flip=()=>$('#fcCard').classList.toggle('flipped');
+ $('#fcCard').onclick=flip;
+ $('#fcFlip').onclick=flip;
+ $('#fcNext').onclick=()=>{FC.i=(FC.i+1)%FC.deck.length;$('#fcCard').classList.remove('flipped');renderDeck()};
+ $('#fcPrev').onclick=()=>{FC.i=(FC.i-1+FC.deck.length)%FC.deck.length;$('#fcCard').classList.remove('flipped');renderDeck()};
+ $('#fcShuffle').onclick=()=>{for(let i=FC.deck.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[FC.deck[i],FC.deck[j]]=[FC.deck[j],FC.deck[i]]}FC.i=0;$('#fcCard').classList.remove('flipped');renderDeck();toast('تم خلط البطاقات')};
+ $('#fcKnow').onclick=()=>{const d=FC.deck[FC.i%FC.deck.length];KNOWN.add(d.id);save(LS.k,[...KNOWN]);FC.i=(FC.i+1)%FC.deck.length;$('#fcCard').classList.remove('flipped');renderDeck();renderDashboard()};
+ $('#fcAgain').onclick=()=>{FC.i=(FC.i+1)%FC.deck.length;$('#fcCard').classList.remove('flipped');renderDeck()};
+addEventListener('keydown',e=>{
+  if(!$('#overlay').classList.contains('show')&&document.activeElement.id!=='bQ'&&document.activeElement.tagName!=='INPUT'&&document.activeElement.tagName!=='SELECT'){
+    const rect=$('#cards').getBoundingClientRect();
+    if(rect.top<innerHeight&&rect.bottom>0){
+      if(e.key==='ArrowLeft'){e.preventDefault();$('#fcNext').click()}
+      if(e.key==='ArrowRight'){e.preventDefault();$('#fcPrev').click()}
+      if(e.key===' '||e.key==='Enter'){e.preventDefault();flip()}
+    }
+  }
+});
+
+/* ============================================================
+   المعادلة الذهبية التفاعلية
+============================================================ */
+function updEq(){
+  const cap=+$('#sCap').value,wish=+$('#sWish').value,ctx=+$('#sCtx').value;
+  $('#oCap').textContent=cap;$('#oWish').textContent=wish;$('#oCtx').textContent=ctx;
+  const r=Math.round(cap*wish*ctx/10000);
+  $('#eqOut').textContent=r+'%';
+  $('#eqBar').style.width=r+'%';
+  $('#eqVerdict').textContent=r>=85?'أداء استثنائي متمايز — مفاوض محترف':r>=65?'أداء متمايز — قوي ومستقر':r>=40?'أداء مقبول — يحتاج تعزيز أحد المكوّنين':r>=15?'أداء متدنٍ — راجع القدرة والرغبة والسياق':'أداء شبه معدوم — التفاوض سيش�ر بفشل مؤكد';
+}
+['sCap','sWish','sCtx'].forEach(id=>$('#'+id).addEventListener('input',updEq));
+updEq();
+
+/* تشغيل */
+renderChips();renderDeck();renderDashboard();
+</script>
+</body>
+</html>
